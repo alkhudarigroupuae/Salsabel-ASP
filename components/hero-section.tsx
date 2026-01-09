@@ -68,27 +68,27 @@ export function HeroSection() {
         </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="flex items-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
             <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Truck className="h-5 w-5 text-primary" />
+              <Truck className="h-5 w-5 text-blue-500" />
             </div>
             <div>
               <p className="font-medium text-foreground">Fast Delivery</p>
               <p className="text-sm text-muted-foreground">FedEx & DHL Shipping</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
             <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Shield className="h-5 w-5 text-primary" />
+              <Shield className="h-5 w-5 text-blue-500" />
             </div>
             <div>
               <p className="font-medium text-foreground">Quality Assurance</p>
               <p className="text-sm text-muted-foreground">OEM & Genuine Parts</p>
             </div>
           </div>
-          <div className="flex items-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
             <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Headphones className="h-5 w-5 text-primary" />
+              <Headphones className="h-5 w-5 text-blue-500" />
             </div>
             <div>
               <p className="font-medium text-foreground">Expert Assistance</p>
