@@ -25,18 +25,6 @@ export function Footer() {
           We import, export, and distribute auto brands. Our customers get great value with high-quality replacement parts at affordable prices. Our in-house certified OE equivalent parts ensure flawless fitment, granting customers the same top-tier performance, reliability, and longevity at prices that won’t break the bank.
         </p>
 
-        <div className="my-8 p-6 bg-muted/30 rounded-lg border border-border">
-            <h4 className="font-bold mb-2 text-foreground">Vivez l’aventure inédite de Win Unique Casino</h4>
-            <p className="mb-4 text-sm leading-relaxed">
-                Win Unique Casino offre aux joueurs français une expérience de jeu complète avec une grande variété de machines à sous et de jeux de table. Les bonus généreux et les promotions fréquentes rendent chaque session plus divertissante. La plateforme est entièrement win unique sécurisée, garantissant des dépôts et retraits rapides et fiables. De plus, le service client est disponible pour répondre à toutes les questions et assurer une expérience agréable.
-            </p>
-            
-            <h4 className="font-bold mb-2 text-foreground">Twin Casino : une expérience de jeu française élégante et sécurisée</h4>
-            <p className="mb-0 text-sm leading-relaxed">
-                En France, Twin Casino se distingue par son design raffiné et son environnement de jeu immersif. Les joueurs y trouvent des centaines de titres issus des meilleurs fournisseurs, garantissant une expérience variée et de haute qualité. Les promotions exclusives et twin casino le programme de fidélité récompensent les utilisateurs les plus actifs. De plus, Twin Casino met un point d’honneur à offrir un service client réactif et des transactions financières parfaitement sécurisées.
-            </p>
-        </div>
-
         <p className="mb-4 leading-relaxed">
           Whether you’re in need of a dependable replacement part or an enhancement for your vehicle’s body kit, you’ll find it all right here you can also Check spare parts for sale with <Link href="/shop" className="text-primary hover:underline font-medium">parts online</Link>.
         </p>
