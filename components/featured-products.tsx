@@ -102,7 +102,7 @@ export function FeaturedProducts() {
                       <span className="text-xl font-bold text-foreground">{formatPrice(product.price)}</span>
                     </div>
                     <Button
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="w-full bg-blue-500 hover:bg-blue-600 text-white"
                       onClick={() =>
                         addItem({
                           id: product.id,

@@ -189,7 +189,7 @@ export function NewArrivalsCarousel() {
                                 quantity: 1,
                               })
                             }
-                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                            className="w-full bg-blue-500 hover:bg-blue-600 text-white"
                             size="sm"
                           >
                             <ShoppingCart className="h-4 w-4 mr-2" />

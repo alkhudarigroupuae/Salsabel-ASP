@@ -54,7 +54,7 @@ export function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/shop/">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
                 Shop All Parts
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
