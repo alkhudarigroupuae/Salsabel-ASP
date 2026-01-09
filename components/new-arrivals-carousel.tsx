@@ -139,7 +139,7 @@ export function NewArrivalsCarousel() {
 
               return (
                 <div key={product.id} className="flex-shrink-0 px-2" style={{ width: `${100 / itemsPerView}%` }}>
-                  <Card className="bg-card border-border hover:border-primary/50 transition-all group h-full hover:shadow-lg hover:shadow-primary/10">
+                  <Card className="bg-card border-border hover:border-blue-500 transition-all group h-full hover:shadow-lg hover:shadow-blue-500/10">
                     <CardContent className="p-4 flex flex-col h-full">
                       {/* Image */}
                       <Link
