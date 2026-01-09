@@ -3,6 +3,10 @@ import { supabase } from "@/lib/supabase-client"
 
 export async function GET(request: NextRequest) {
   try {
+    if (!supabase) {
+      return NextResponse.json({ error: "Supabase client not initialized" }, { status: 503 })
+    }
+
     const { data, error } = await supabase.from("categories").select("*").order("name", { ascending: true })
 
     if (error) throw error

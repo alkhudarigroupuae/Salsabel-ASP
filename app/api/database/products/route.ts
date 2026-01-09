@@ -12,6 +12,10 @@ export async function GET(request: NextRequest) {
     const featured = searchParams.get("featured") === "true"
     const onSale = searchParams.get("on_sale") === "true"
 
+    if (!supabase) {
+      return NextResponse.json({ error: "Supabase client not initialized" }, { status: 503 })
+    }
+
     let query = supabase.from("products").select("*")
 
     // Apply filters

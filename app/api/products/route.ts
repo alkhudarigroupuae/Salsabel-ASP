@@ -37,6 +37,10 @@ export async function GET(request: Request) {
   }
 
   try {
+    if (!supabase) {
+      throw new Error("Supabase client not initialized")
+    }
+
     let query = supabase.from("products").select("*")
 
     if (search) {

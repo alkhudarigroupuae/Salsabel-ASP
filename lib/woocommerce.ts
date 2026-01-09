@@ -42,9 +42,19 @@ async function wooCommerceRequest<T>(endpoint: string, options: WooCommerceReque
     cache: "no-store",
   })
 
+  // Log URL for debugging (remove in production)
+  // console.log(`[WooCommerce] Requesting: ${url.toString()}`)
+
   if (!response.ok) {
     const errorText = await response.text()
     throw new Error(`WooCommerce API Error: ${response.status} - ${errorText}`)
+  }
+
+  const contentType = response.headers.get("content-type")
+  if (contentType && !contentType.includes("application/json")) {
+    const text = await response.text()
+    console.error(`[WooCommerce] Received non-JSON response from ${url.toString()}:`, text.substring(0, 100))
+    throw new Error(`WooCommerce API returned non-JSON response: ${contentType}`)
   }
 
   return response.json()

@@ -13,6 +13,10 @@ export async function POST(request: NextRequest) {
 
     console.log("[v0] Starting category sync from WooCommerce...")
 
+    if (!supabase) {
+      throw new Error("Supabase client not initialized")
+    }
+
     // Fetch all categories from WooCommerce
     const categories = await wooCategories.getAll({ per_page: 100 })
     console.log(`[v0] Fetched ${categories.length} categories from WooCommerce`)

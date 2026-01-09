@@ -15,6 +15,10 @@ export async function POST(request: NextRequest) {
 
     console.log("[v0] Starting product sync from WooCommerce...")
 
+    if (!supabase) {
+      throw new Error("Supabase client not initialized")
+    }
+
     // Fetch all products from WooCommerce
     const products = await wooProducts.getAll({ per_page: 100 })
     console.log(`[v0] Fetched ${products.length} products from WooCommerce`)
