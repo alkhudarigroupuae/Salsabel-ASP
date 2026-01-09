@@ -8,6 +8,9 @@ const WOOCOMMERCE_URL = process.env.WOOCOMMERCE_URL || ""
 const CONSUMER_KEY = process.env.WOOCOMMERCE_CONSUMER_KEY || ""
 const CONSUMER_SECRET = process.env.WOOCOMMERCE_CONSUMER_SECRET || ""
 
+// Sanitize URL
+const sanitizedUrl = WOOCOMMERCE_URL.replace(/\/$/, "")
+
 interface WooCommerceRequestOptions {
   method?: "GET" | "POST" | "PUT" | "DELETE"
   body?: Record<string, unknown>
