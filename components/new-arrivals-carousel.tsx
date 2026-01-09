@@ -152,7 +152,7 @@ export function NewArrivalsCarousel() {
                           className="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-300"
                         />
                         {isOnSale && <Badge className="absolute top-2 left-2 bg-red-500 text-white">Sale</Badge>}
-                        <Badge className="absolute top-2 right-2 bg-primary text-primary-foreground">New</Badge>
+                        <Badge className="absolute top-2 right-2 bg-blue-500 hover:bg-blue-600 text-white">New</Badge>
                       </Link>
 
                       {/* Content */}
