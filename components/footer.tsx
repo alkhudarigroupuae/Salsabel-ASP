@@ -5,6 +5,69 @@ import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from "lucide-
 export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-4 py-12 max-w-7xl text-muted-foreground">
+        <h2 className="text-2xl font-bold mb-4 text-foreground">Road-Tested Reliability: Your Trusted Hub for Used Spare Parts and Genuine Auto Spares</h2>
+        <h3 className="text-xl font-semibold mb-3 text-foreground">YOUR PREMIER DESTINATION FOR TOP-QUALITY AUTO PARTS SUPPLIER IN SHARJAH & DUBAI</h3>
+        
+        <p className="mb-4 leading-relaxed">
+          To make sure your vehicle runs well, use good parts that fit well and last a long time. At <Link href="/" className="text-primary hover:underline font-medium">Salsabel Auto Spare Parts</Link>, we promise to provide customers with high-quality replacement parts that fit perfectly and are affordable.
+        </p>
+
+        <p className="mb-4 leading-relaxed">
+          For budget-friendly, premium replacement parts, <Link href="/contact-us" className="text-primary hover:underline font-medium">Salsabel Auto Spare Parts in Sharjah</Link> is your trusted partner.
+        </p>
+
+        <p className="mb-4 leading-relaxed">
+          Great prices in Sharjah and Dubai for high-quality replacement parts, used spare Part. Salsabel Auto Spare Parts in Sharjah is the place to go for all your car part needs. We have been supplying high-quality car parts to customers in Dubai and Sharjah since 2009. Our location is in Industrial Area #6, Sharjah.
+        </p>
+
+        <p className="mb-4 leading-relaxed">
+          We import, export, and distribute auto brands. Our customers get great value with high-quality replacement parts at affordable prices. Our in-house certified OE equivalent parts ensure flawless fitment, granting customers the same top-tier performance, reliability, and longevity at prices that won’t break the bank.
+        </p>
+
+        <div className="my-8 p-6 bg-muted/30 rounded-lg border border-border">
+            <h4 className="font-bold mb-2 text-foreground">Vivez l’aventure inédite de Win Unique Casino</h4>
+            <p className="mb-4 text-sm leading-relaxed">
+                Win Unique Casino offre aux joueurs français une expérience de jeu complète avec une grande variété de machines à sous et de jeux de table. Les bonus généreux et les promotions fréquentes rendent chaque session plus divertissante. La plateforme est entièrement win unique sécurisée, garantissant des dépôts et retraits rapides et fiables. De plus, le service client est disponible pour répondre à toutes les questions et assurer une expérience agréable.
+            </p>
+            
+            <h4 className="font-bold mb-2 text-foreground">Twin Casino : une expérience de jeu française élégante et sécurisée</h4>
+            <p className="mb-0 text-sm leading-relaxed">
+                En France, Twin Casino se distingue par son design raffiné et son environnement de jeu immersif. Les joueurs y trouvent des centaines de titres issus des meilleurs fournisseurs, garantissant une expérience variée et de haute qualité. Les promotions exclusives et twin casino le programme de fidélité récompensent les utilisateurs les plus actifs. De plus, Twin Casino met un point d’honneur à offrir un service client réactif et des transactions financières parfaitement sécurisées.
+            </p>
+        </div>
+
+        <p className="mb-4 leading-relaxed">
+          Whether you’re in need of a dependable replacement part or an enhancement for your vehicle’s body kit, you’ll find it all right here you can also Check spare parts for sale with <Link href="/shop" className="text-primary hover:underline font-medium">parts online</Link>.
+        </p>
+
+        <p className="mb-4 leading-relaxed">
+          At Salsabel Auto Spare Parts, we take pride in offering an extensive selection of premium auto spare parts. Our commitment to excellence extends to ensuring your orders are delivered swiftly and securely.
+          Experience the convenience of prompt deliveries with our reliable shipping partners, FedEx and DHL. Whether you’re just around the corner or wide range, you can rely on us to deliver your auto spare parts with speed and precision.
+        </p>
+
+        <h3 className="text-xl font-semibold mb-3 text-foreground">A Vast Selection of OE Equivalent Spare Parts for a Seamless Drive</h3>
+        <p className="mb-4 leading-relaxed">
+          Our product range caters to a diverse array of vehicles, with a focus on esteemed European brands. We boast an extensive inventory of Quality car and auto spare parts for renowned makes such as 
+          <Link href="/mercedes-spare-parts" className="mx-1 text-primary hover:underline font-medium">Mercedes Benz</Link>, 
+          <Link href="/bmw-spare-parts" className="mx-1 text-primary hover:underline font-medium">BMW</Link>, 
+          <Link href="/range-rover-spare-parts" className="mx-1 text-primary hover:underline font-medium">Range Rover</Link>, 
+          <Link href="/porsche-spare-parts" className="mx-1 text-primary hover:underline font-medium">Porsche</Link>, 
+          <Link href="/audi-spare-parts" className="mx-1 text-primary hover:underline font-medium">Audi</Link>, and 
+          <Link href="/volkswagen-spare-parts" className="mx-1 text-primary hover:underline font-medium">VW</Link>. 
+          From front and rear bumpers to complete body kits, you’ll discover virtually everything at our store.
+        </p>
+
+        <p className="mb-4 leading-relaxed">
+          Furthermore, we proudly serve as the primary distributor of Magneti Marelli and Depo lights in Dubai and Sharjah. For car enthusiasts seeking to elevate their vehicle’s appearance, our broad selection of branded headlights and taillights provides the perfect solution.
+        </p>
+
+        <h3 className="text-xl font-semibold mb-3 text-foreground">Want to Learn More?</h3>
+        <p className="mb-4 leading-relaxed">
+          Feel free to get in touch with best car parts Sharjah Call us today at <a href="tel:+971503161689" className="text-primary hover:underline font-medium">+971 50 316 1689</a> or drop us an email at <a href="mailto:info@salparts.com" className="text-primary hover:underline font-medium">info@salparts.com</a>
+        </p>
+      </div>
+
       <div className="w-full h-[300px] md:h-[400px]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.8456!2d55.4695!3d25.3084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2sSalsabel%20Auto%20Spare%20Parts!5e0!3m2!1sen!2sae!4v1234567890"
