@@ -98,6 +98,19 @@ export function FeaturedCategories() {
             </Link>
           ))}
         </div>
+
+        <div className="mt-16 text-center max-w-4xl mx-auto">
+          <h3 className="text-xl md:text-2xl font-bold mb-4">
+            Welcome To Our Extensive Inventory Of Premium Auto Spare Parts Shop In Area Industrial Sharjah
+          </h3>
+          <p className="text-muted-foreground leading-relaxed">
+            We offer a diverse range of authentic parts sourced from Best Car Parts Suppliers , guaranteeing exceptional
+            quality and seamless integration and Original Equipment Manufacturer . Whether you’re a car enthusiast or a
+            professional mechanic, we provide the Best replacement parts available in the UAE and Middle East Explore
+            our catalog today or install Our Mobile Application for reliable high quality solutions that keep your ride
+            running smoothly!
+          </p>
+        </div>
       </div>
     </section>
   )
