@@ -187,7 +187,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased px-5`}>
+      <body className={`font-sans antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
