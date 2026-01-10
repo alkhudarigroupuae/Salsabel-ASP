@@ -9,10 +9,12 @@ import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 import Link from "next/link"
 import { useProducts } from "@/lib/hooks/use-products"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 
 export function NewArrivalsCarousel() {
   const t = useTranslations("NewArrivals")
+  const locale = useLocale()
+  const isRtl = locale === "ar"
   const { products: rawProducts, isLoading } = useProducts({ orderby: "date", order: "desc", per_page: 12 })
   const { addItem } = useCart()
   const { formatPrice } = useCurrency()
@@ -109,7 +111,7 @@ export function NewArrivalsCarousel() {
               disabled={currentIndex === 0}
               className="h-10 w-10 rounded-full border-border hover:bg-primary hover:text-primary-foreground disabled:opacity-50 bg-transparent"
             >
-              <ChevronLeft className="h-5 w-5" />
+              {isRtl ? <ChevronRight className="h-5 w-5" /> : <ChevronLeft className="h-5 w-5" />}
             </Button>
             <Button
               variant="outline"
@@ -118,16 +120,16 @@ export function NewArrivalsCarousel() {
               disabled={currentIndex >= maxIndex}
               className="h-10 w-10 rounded-full border-border hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
             >
-              <ChevronRight className="h-5 w-5" />
+              {isRtl ? <ChevronLeft className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
             </Button>
           </div>
         </div>
 
         {/* Carousel */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden" dir={isRtl ? "rtl" : "ltr"}>
           <div
             className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+            style={{ transform: `translateX(${isRtl ? "" : "-"}${currentIndex * (100 / itemsPerView)}%)` }}
           >
             {products.map((product) => {
               const price = Number.parseFloat(product.price) || 0
