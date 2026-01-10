@@ -44,11 +44,29 @@ export function CheckoutForm() {
     e.preventDefault()
     setIsProcessing(true)
 
-    // Simulate payment processing
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          items,
+          shippingMethod,
+        }),
+      })
 
-    clearCart()
-    router.push("/checkout/success")
+      if (!response.ok) {
+        throw new Error("Checkout failed")
+      }
+
+      const { url } = await response.json()
+      window.location.href = url
+    } catch (error) {
+      console.error("Checkout error:", error)
+      setIsProcessing(false)
+      // You might want to show a toast notification here
+    }
   }
 
   if (items.length === 0) {

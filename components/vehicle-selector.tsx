@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import Link from "next/link"
 import { Car, Search } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -128,9 +129,9 @@ export function VehicleSelector() {
 
           <p className="text-center text-sm text-muted-foreground mt-4">
             Or browse our full{" "}
-            <a href="/shop" className="text-primary hover:underline">
+            <Link href="/shop" className="text-primary hover:underline">
               parts catalog
-            </a>
+            </Link>
           </p>
         </div>
       </div>

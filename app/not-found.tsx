@@ -16,7 +16,7 @@ export default function NotFound() {
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/products">Browse Products</Link>
+              <Link href="/shop">Browse Products</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/">Go Home</Link>

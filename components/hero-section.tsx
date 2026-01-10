@@ -59,7 +59,7 @@ export function HeroSection() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/contact/">
+            <Link href="/contact-us/">
               <Button size="lg" variant="outline" className="border-border bg-transparent">
                 Get a Free Quotation
               </Button>

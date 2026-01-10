@@ -1,12 +1,22 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+"use client"
+
+import { useEffect, Suspense } from "react"
+import { useCart } from "@/lib/cart-context"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Package, Mail, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 
-export default function CheckoutSuccessPage() {
-  const orderNumber = `ORD-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+function SuccessContent() {
+  const { clearCart } = useCart()
+  const searchParams = useSearchParams()
+  const sessionId = searchParams.get("session_id")
+  const orderNumber = sessionId ? `ORD-${sessionId.slice(-8).toUpperCase()}` : `ORD-${Math.random().toString(36).substring(2, 8).toUpperCase()}`
+
+  useEffect(() => {
+    clearCart()
+  }, [clearCart])
 
   return (
     <div className="min-h-screen bg-background">
@@ -61,5 +71,13 @@ export default function CheckoutSuccessPage() {
         </Card>
       </main>
     </div>
+  )
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   )
 }

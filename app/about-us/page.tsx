@@ -1,4 +1,5 @@
 import { WhatsAppButton } from "@/components/whatsapp-button"
+import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Users, Award, Truck, Shield, Headphones } from "lucide-react"
 import type { Metadata } from "next"

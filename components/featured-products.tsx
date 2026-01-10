@@ -8,12 +8,15 @@ import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 
 import { useProducts } from "@/lib/hooks/use-products"
-import { Sparkles } from "lucide-react"
 
 export function FeaturedProducts() {
-  const { products, isLoading } = useProducts({ featured: true, per_page: 8 })
+  const { products: rawProducts, isLoading } = useProducts({ featured: true, per_page: 8 })
   const { addItem } = useCart()
   const { formatPrice } = useCurrency()
+
+  const products = rawProducts.filter(
+    (product, index, self) => index === self.findIndex((t) => t.id === product.id),
+  )
 
   if (isLoading) {
     return (
@@ -91,7 +94,9 @@ export function FeaturedProducts() {
 
                   <div className="mt-auto">
                     <div className="mb-3">
-                      <span className="text-xl font-bold text-foreground">{formatPrice(product.price)}</span>
+                      <span className="text-xl font-bold text-foreground">
+                        {formatPrice(parseFloat(product.price) || 0)}
+                      </span>
                     </div>
                     <Button
                       className="w-full bg-blue-500 hover:bg-blue-600 text-white"
@@ -99,8 +104,8 @@ export function FeaturedProducts() {
                         addItem({
                           id: product.id,
                           name: product.name,
-                          price: product.price,
-                          image: product.image,
+                          price: parseFloat(product.price) || 0,
+                          image: product.images[0]?.src || "/placeholder.svg",
                           quantity: 1,
                         })
                       }
