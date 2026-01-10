@@ -9,7 +9,7 @@ import { CurrencyProvider } from "@/lib/currency-context"
 import { ThemeProvider } from "@/lib/theme-context"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import "./globals.css"
+import "../globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -100,36 +100,51 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode
+  params: Promise<{locale: string}>
 }>) {
+  const { locale } = await params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
-        <Script id="gtm" strategy="afterInteractive">
-          {`
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <Script id="gtm" strategy="afterInteractive">
+            {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+            })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
           `}
-        </Script>
+          </Script>
+        )}
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX" strategy="afterInteractive" />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
+        {process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-ads" strategy="afterInteractive">
+              {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-XXXXXXXXX');
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');
           `}
-        </Script>
+            </Script>
+          </>
+        )}
 
-        <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
+        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+          <Script id="facebook-pixel" strategy="afterInteractive">
+            {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -138,10 +153,11 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', 'YOUR_FACEBOOK_PIXEL_ID');
+            fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
             fbq('track', 'PageView');
           `}
-        </Script>
+          </Script>
+        )}
 
         <Script
           id="schema-org"
@@ -188,17 +204,20 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased p-5`}>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
 
-        <ThemeProvider>
-          <AuthProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider>
+            <AuthProvider>
             <CurrencyProvider>
               <CartProvider>
                 <Header />
@@ -209,6 +228,7 @@ export default function RootLayout({
           </AuthProvider>
         </ThemeProvider>
         <Analytics />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

@@ -53,7 +53,7 @@ const categoryBanners: Record<string, string> = {
 }
 
 interface CategoryPageProps {
-  params: Promise<{ category: string }>
+  params: Promise<{ locale: string; category: string }>
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {

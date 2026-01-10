@@ -1,5 +1,5 @@
 
-import { getData } from "../actions";
+import { getData } from "../../actions";
 
 export default async function DbTestPage() {
   let data = null;

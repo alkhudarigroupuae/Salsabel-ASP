@@ -9,6 +9,8 @@ import { useState, useEffect } from "react"
 import { useCart } from "@/lib/cart-context"
 import { useAuth } from "@/lib/auth-context"
 import { useCurrency } from "@/lib/currency-context"
+import { LanguageSwitcher } from "@/components/language-switcher"
+import { useTranslations } from "next-intl"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -86,7 +88,7 @@ export function Header() {
                 height={159}
                 priority
                 unoptimized
-                className="h-14 sm:h-16 md:h-[70px] w-auto object-contain"
+                className="h-10 sm:h-12 md:h-[50px] w-auto object-contain"
               />
             </Link>
 
@@ -96,13 +98,14 @@ export function Header() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search parts, brands, part numbers..."
-                  className="pl-10 bg-secondary border-border"
+                  className="pl-10 bg-secondary border border-[#004aad]"
                 />
               </div>
             </div>
 
             {/* Actions */}
             <div className="flex items-center gap-1">
+              <LanguageSwitcher />
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="h-8 gap-1 px-2 text-sm">
@@ -155,26 +158,26 @@ export function Header() {
                       </div>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem asChild>
-                        <Link href="/my-account/">My Account</Link>
+                        <Link href="/my-account/">{tCommon("account")}</Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
-                        <Link href="/my-account/?tab=orders">Orders</Link>
+                        <Link href="/my-account/?tab=orders">{tCommon("orders")}</Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
-                        <Link href="/my-account/?tab=vehicles">My Vehicles</Link>
+                        <Link href="/my-account/?tab=vehicles">{tCommon("myVehicles")}</Link>
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={logout} className="text-destructive">
-                        Sign Out
+                        {tCommon("signOut")}
                       </DropdownMenuItem>
                     </>
                   ) : (
                     <>
                       <DropdownMenuItem asChild>
-                        <Link href="/my-account/">Sign In</Link>
+                        <Link href="/my-account/">{tCommon("signIn")}</Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
-                        <Link href="/my-account/">Create Account</Link>
+                        <Link href="/my-account/">{tCommon("createAccount")}</Link>
                       </DropdownMenuItem>
                     </>
                   )}
@@ -239,10 +242,32 @@ export function Header() {
         </div>
       </header>
 
-      <div className="bg-white dark:bg-black/90 border-b border-border dark:border-white/10 block transition-colors duration-300">
+      {/* Brands Bar */}
+      <div className="bg-black border-b border-white/10 block transition-colors duration-300">
         <div className="container mx-auto px-0 md:px-4">
           <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2 py-2 px-2 md:px-0">
-            <BrandLinks className="px-2 py-1 text-[10px] md:text-sm text-[#004aad] hover:text-[#004aad]/80 hover:bg-black/5 dark:hover:bg-white/10 rounded-md transition-colors whitespace-nowrap" />
+            {[
+              { name: "BMW", slug: "bmw-spare-parts" },
+              { name: "Mercedes", slug: "mercedes-spare-parts" },
+              { name: "Audi", slug: "audi-spare-parts" },
+              { name: "Porsche", slug: "porsche-spare-parts" },
+              { name: "Range Rover", slug: "range-rover-spare-parts" },
+              { name: "Volkswagen", slug: "volkswagen-spare-parts" },
+              { name: "Bentley", slug: "bentley-spare-parts" },
+              { name: "Rolls Royce", slug: "rolls-royce-spare-parts" },
+              { name: "Ferrari", slug: "ferrari-spare-parts" },
+              { name: "Lamborghini", slug: "lamborghini-spare-parts" },
+              { name: "Mini Cooper", slug: "mini-cooper-spare-parts" },
+              { name: "Maserati", slug: "maserati-spare-parts" },
+            ].map((brand) => (
+              <Link
+                key={brand.slug}
+                href={`/${brand.slug}`}
+                className="px-2 py-1 text-[10px] md:text-sm text-[#004aad] hover:text-[#004aad]/80 hover:bg-white/10 rounded-md transition-colors whitespace-nowrap font-medium"
+              >
+                {brand.name}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

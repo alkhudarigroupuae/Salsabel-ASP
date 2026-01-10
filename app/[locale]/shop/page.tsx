@@ -1,23 +1,29 @@
 import { Suspense } from "react"
-import type { Metadata } from "next"
 import { ProductGrid } from "@/components/product-grid"
 import { ProductFilters } from "@/components/product-filters"
 import { ProductSearch } from "@/components/product-search"
+import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
-export const metadata: Metadata = {
-  title: "Shop - Salsabel Auto Spare Parts",
-  description:
-    "Browse our extensive collection of genuine auto spare parts for BMW, Mercedes, Audi, Porsche, and more.",
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale, namespace: "Shop" })
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  }
 }
 
 export default function ShopPage() {
+  const t = useTranslations("Shop")
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2">Shop All Parts</h1>
-          <p className="text-muted-foreground">Browse our extensive inventory of genuine auto spare parts</p>
+          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2">{t("title")}</h1>
+          <p className="text-muted-foreground">{t("subtitle")}</p>
         </div>
 
         {/* Search Bar - wrapped in Suspense */}

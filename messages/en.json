@@ -1,0 +1,147 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "blog": "Blog",
+    "brands": "Brands"
+  },
+  "Common": {
+    "searchPlaceholder": "Search by Part Name, Part Number, or VIN...",
+    "search": "Search",
+    "cart": "Cart",
+    "account": "Account",
+    "login": "Login",
+    "orders": "Orders",
+    "myVehicles": "My Vehicles",
+    "signOut": "Sign Out",
+    "signIn": "Sign In",
+    "createAccount": "Create Account"
+  },
+  "Footer": {
+    "about": "About Salsabel",
+    "aboutText": "Premium auto spare parts supplier in Sharjah, UAE. Genuine OEM and aftermarket parts for luxury European cars.",
+    "quickLinks": "Quick Links",
+    "categories": "Categories",
+    "contact": "Contact Info",
+    "rights": "All rights reserved.",
+    "development": "Development By",
+    "carBrands": "Car Brands",
+    "urgentSupport": "Call Us for Urgent Support",
+    "location": "Industrial Area #6, Sharjah, UAE",
+    "heroTitle": "Road-Tested Reliability: Your Trusted Hub for Used Spare Parts and Genuine Auto Spares",
+    "subTitle": "YOUR PREMIER DESTINATION FOR TOP-QUALITY AUTO PARTS SUPPLIER IN SHARJAH & DUBAI",
+    "selectionTitle": "A Vast Selection of OE Equivalent Spare Parts for a Seamless Drive",
+    "learnMore": "Want to Learn More?",
+    "categoriesList": {
+        "bodyParts": "Body Parts",
+        "gearBoxParts": "Gear Box Parts",
+        "brakingParts": "Braking Parts",
+        "engineParts": "Engine Parts",
+        "coolantParts": "Coolant Parts",
+        "interiorParts": "Interior Parts",
+        "electricalParts": "Electrical Parts",
+        "suspensionParts": "Suspension Parts"
+    }
+  },
+  "Hero": {
+    "tagline": "Genuine Spare Parts For Your Car Brand",
+    "title": "Premium Auto Spare Parts In Sharjah",
+    "description": "Welcome to our extensive inventory of premium auto spare parts shop in Industrial Area Sharjah. We offer a diverse range of authentic parts sourced from best car parts suppliers, guaranteeing exceptional quality and seamless integration with Original Equipment Manufacturer standards.",
+    "shopAll": "Shop All Parts",
+    "getQuote": "Get a Free Quotation",
+    "features": {
+        "fastDelivery": "Fast Delivery",
+        "shipping": "FedEx & DHL Shipping",
+        "quality": "Quality Assurance",
+        "oem": "OEM & Genuine Parts",
+        "expert": "Expert Assistance",
+        "call": "Call +971 50 316 1689"
+    }
+  },
+  "FeaturedCategories": {
+    "title": "Genuine Spare Parts for Your Car Brand",
+    "subtitle": "Shop premium OEM replacement parts",
+    "viewAll": "View all brands"
+  },
+  "FeaturedProducts": {
+    "title": "New Arrival & Spare Parts Sales!",
+    "subtitle": "Latest OEM parts from trusted European brands",
+    "viewAll": "View all categories",
+    "categories": {
+      "brakes": "Brake System",
+      "bodyParts": "Body Parts",
+      "suspension": "Suspension & Shock Absorbers"
+    }
+  },
+  "WhatsApp": {
+    "message": "Hello! I'm interested in your auto spare parts.",
+    "ariaLabel": "Contact us on WhatsApp"
+  },
+  "About": {
+    "metaTitle": "About Us | Salsabel Auto Spare Parts",
+    "metaDescription": "Welcome to Al Salsabel Auto Spare Parts, where automotive excellence begins! Your trusted source for premium new and genuine used automotive components since 2009.",
+    "title": "SALSABEL AUTO SPARE PARTS",
+    "welcome": "Welcome",
+    "intro": "About Us, Welcome to Al Salsabel Auto Spare Parts, where automotive excellence begins! We are your trusted source for premium new and genuine used automotive components. With an unwavering commitment to quality and customer satisfaction, Salsabel is dedicated to serving all your auto part needs.",
+    "inventoryTitle": "Our Extensive Inventory",
+    "inventoryText": "At Salsabel Automotive components, we take pride in our extensive inventory of premium new and genuine used auto spare parts. Whether you're a car enthusiast, a professional mechanic, or a vehicle owner, we have a wide selection of top-notch components to cater to your specific requirements. Our inventory is meticulously curated to ensure that you have access to the finest automotive parts on the market.",
+    "qualityTitle": "Quality and Customer Satisfaction",
+    "qualityText": "At Al Salsabel Auto Spare Parts, quality is our utmost priority. We understand the importance of reliable automotive components for the safety and performance of your vehicle. That's why we partner with trusted manufacturers and suppliers to bring you products that meet or exceed industry standards. Our team of experts is always available to assist you in finding the right parts for your vehicle.",
+    "shopTitle": "Shop with Confidence",
+    "shopText": "When you shop at Al Salsabel, you can do so with confidence, knowing that you are getting high-quality auto parts at competitive prices. We take pride in our commitment to excellence, ensuring that your journey to vehicle excellence begins here.",
+    "servicesTitle": "Our Services Features",
+    "features": {
+        "inventory": "Vast Inventory",
+        "inventoryDesc": "Explore our extensive range of premium new and genuine used auto spare parts.",
+        "pricing": "Competitive Pricing",
+        "pricingDesc": "We offer competitive prices to help you stay within your budget.",
+        "quality": "Quality Assurance",
+        "qualityDesc": "Rest easy knowing that our spare parts are sourced from reputable manufacturers."
+    }
+  },
+  "Contact": {
+    "metaTitle": "Contact Us | Salsabel Auto Spare Parts",
+    "metaDescription": "Contact Salsabel Auto Spare Parts in Sharjah. Call +971 50 316 1689 or visit us at Industrial Area #6, Sharjah, UAE.",
+    "title": "Contact Salsabel Auto Spare Parts",
+    "subtitle": "Get in touch with us for any inquiries about auto spare parts. Our team is ready to assist you.",
+    "getInTouch": "Get In Touch",
+    "urgentSupport": "Call Us for Urgent Support",
+    "salesInquiries": "Sales Inquiries",
+    "whatsapp": "WhatsApp",
+    "sendMessage": "Send Message",
+    "email": "Email",
+    "location": "Location",
+    "workingHours": "Working Hours",
+    "hours": "Saturday - Thursday: 8:00 AM - 7:00 PM",
+    "closed": "Friday: Closed",
+    "formTitle": "Get a Free Quotation",
+    "formName": "Your Name",
+    "formNamePlaceholder": "Enter your name",
+    "formEmail": "Email Address",
+    "formEmailPlaceholder": "Enter your email",
+    "formPhone": "Phone Number",
+    "formPhonePlaceholder": "+971 XX XXX XXXX",
+    "formSubject": "Subject",
+    "formSubjectPlaceholder": "What is this about?",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Describe the parts you need (include vehicle make, model, year if applicable)",
+    "submit": "Send Message"
+  },
+  "Shop": {
+    "metaTitle": "Shop - Salsabel Auto Spare Parts",
+    "metaDescription": "Browse our extensive collection of genuine auto spare parts for BMW, Mercedes, Audi, Porsche, and more.",
+    "title": "Shop All Parts",
+    "subtitle": "Browse our extensive inventory of genuine auto spare parts",
+    "noProducts": "No products found matching your criteria.",
+    "clearFilters": "Clear Filters",
+    "showingProducts": "Showing {count} products",
+    "sale": "Sale",
+    "parts": "Parts",
+    "sku": "SKU:",
+    "addToCart": "Add to Cart",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock"
+  }
+}

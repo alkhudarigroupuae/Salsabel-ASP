@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Truck, Headphones } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { NewArrivalsCarousel } from "@/components/new-arrivals-carousel"
 import { useState, useEffect } from "react"
 
@@ -30,38 +30,36 @@ export function HeroSection() {
         <div
           key={src}
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
-            index === currentImageIndex ? "opacity-30" : "opacity-0"
+            index === currentImageIndex ? "opacity-100 dark:opacity-40" : "opacity-0"
           }`}
           style={{
             backgroundImage: `url('${src}')`,
           }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/80 to-background/70 dark:from-background/95 dark:via-background/90 dark:to-background/80" />
 
       <div className="relative container mx-auto px-4 py-12 lg:py-20">
         <div className="max-w-2xl">
           <p className="text-primary font-medium mb-3 tracking-wide uppercase text-sm">
-            Genuine Spare Parts For Your Car Brand
+            {t("tagline")}
           </p>
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight text-balance">
-            Premium Auto Spare Parts In Sharjah
+            {t("title")}
           </h1>
           <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-            Welcome to our extensive inventory of premium auto spare parts shop in Industrial Area Sharjah. We offer a
-            diverse range of authentic parts sourced from best car parts suppliers, guaranteeing exceptional quality and
-            seamless integration with Original Equipment Manufacturer standards.
+            {t("description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/shop/">
               <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
-                Shop All Parts
+                {t("shopAll")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link href="/contact-us/">
               <Button size="lg" variant="outline" className="border-border bg-transparent">
-                Get a Free Quotation
+                {t("getQuote")}
               </Button>
             </Link>
           </div>
@@ -73,8 +71,8 @@ export function HeroSection() {
               <Truck className="h-5 w-5 text-blue-500" />
             </div>
             <div>
-              <p className="font-medium text-foreground">Fast Delivery</p>
-              <p className="text-sm text-muted-foreground">FedEx & DHL Shipping</p>
+              <p className="font-medium text-foreground">{t("features.fastDelivery")}</p>
+              <p className="text-sm text-muted-foreground">{t("features.shipping")}</p>
             </div>
           </div>
           <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
@@ -82,8 +80,8 @@ export function HeroSection() {
               <Shield className="h-5 w-5 text-blue-500" />
             </div>
             <div>
-              <p className="font-medium text-foreground">Quality Assurance</p>
-              <p className="text-sm text-muted-foreground">OEM & Genuine Parts</p>
+              <p className="font-medium text-foreground">{t("features.quality")}</p>
+              <p className="text-sm text-muted-foreground">{t("features.oem")}</p>
             </div>
           </div>
           <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
@@ -91,8 +89,8 @@ export function HeroSection() {
               <Headphones className="h-5 w-5 text-blue-500" />
             </div>
             <div>
-              <p className="font-medium text-foreground">Expert Assistance</p>
-              <p className="text-sm text-muted-foreground">Call +971 50 316 1689</p>
+              <p className="font-medium text-foreground">{t("features.expert")}</p>
+              <p className="text-sm text-muted-foreground">{t("features.call")}</p>
             </div>
           </div>
         </div>

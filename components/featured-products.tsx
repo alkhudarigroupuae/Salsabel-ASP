@@ -3,120 +3,69 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart, Star } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 
 import { useProducts } from "@/lib/hooks/use-products"
+import { useTranslations } from "next-intl"
 
 export function FeaturedProducts() {
-  const { products: rawProducts, isLoading } = useProducts({ featured: true, per_page: 8 })
-  const { addItem } = useCart()
-  const { formatPrice } = useCurrency()
-
-  const products = rawProducts.filter(
-    (product, index, self) => index === self.findIndex((t) => t.id === product.id),
-  )
-
-  if (isLoading) {
-    return (
-      <section className="py-16 bg-card/50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-10">
-            <div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">New Arrival & Spare Parts Sales!</h2>
-              <p className="text-muted-foreground">Latest OEM parts from trusted European brands</p>
-            </div>
-            <div className="h-4 w-32 bg-secondary rounded animate-pulse hidden sm:block" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(4)].map((_, i) => (
-              <Card key={i} className="bg-card border-border animate-pulse">
-                <CardContent className="p-4">
-                  <div className="aspect-square bg-secondary rounded-lg mb-4" />
-                  <div className="h-4 bg-secondary rounded mb-2" />
-                  <div className="h-4 bg-secondary rounded w-2/3" />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  if (products.length === 0) return null
+  const t = useTranslations("FeaturedProducts")
+  const categories = [
+    {
+      id: "brakes",
+      name: t("categories.brakes"),
+      image: "/brake-rotor-automotive.jpg",
+      link: "/shop?category=brakes",
+    },
+    {
+      id: "body-parts",
+      name: t("categories.bodyParts"),
+      image: "/audi-a5-front-bumper-cover-auto-part.jpg",
+      link: "/shop?category=body-parts",
+    },
+    {
+      id: "suspension",
+      name: t("categories.suspension"),
+      image: "/strut-assembly-automotive.jpg",
+      link: "/shop?category=suspension",
+    },
+  ]
 
   return (
     <section className="py-16 bg-card/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">New Arrival & Spare Parts Sales!</h2>
-            <p className="text-muted-foreground">Latest OEM parts from trusted European brands</p>
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{t("title")}</h2>
+            <p className="text-muted-foreground">{t("subtitle")}</p>
           </div>
           <Link href="/shop/" className="text-primary hover:underline hidden sm:block">
-            View all products
+            {t("viewAll")}
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <Card key={product.id} className="bg-card border-border group flex flex-col">
-              <CardContent className="p-4 flex flex-col flex-1">
-                <div className="relative mb-4">
-                  <Link href={`/product/${product.id}`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category) => (
+            <Link key={category.id} href={category.link} className="group">
+              <Card className="bg-card border-border overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+                <CardContent className="p-0">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={product.images[0]?.src || "/placeholder.svg"}
-                      alt={product.name}
-                      className="w-full aspect-square object-cover rounded-lg bg-secondary"
+                      src={category.image || "/placeholder.svg"}
+                      alt={category.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                  </Link>
-                </div>
-
-                <div className="flex flex-col flex-1">
-                  <p className="text-sm text-muted-foreground mb-1">
-                    {product.attributes.find((a) => a.name === "Brand")?.options[0] || "Salsabel"}
-                  </p>
-                  <Link href={`/product/${product.id}`}>
-                    <h3 className="font-medium text-foreground hover:text-primary transition-colors line-clamp-2 mb-2">
-                      {product.name}
-                    </h3>
-                  </Link>
-
-                  <p className="text-xs text-muted-foreground mb-2">Replace Number: {product.sku || "N/A"}</p>
-
-                  <div className="flex items-center gap-1 mb-3">
-                    <Star className="h-4 w-4 fill-primary text-primary" />
-                    <span className="text-sm text-foreground">{product.average_rating || "0"}</span>
-                    <span className="text-sm text-muted-foreground">({product.rating_count || 0})</span>
-                  </div>
-
-                  <div className="mt-auto">
-                    <div className="mb-3">
-                      <span className="text-xl font-bold text-foreground">
-                        {formatPrice(parseFloat(product.price) || 0)}
-                      </span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                      <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                        {category.name}
+                      </h3>
                     </div>
-                    <Button
-                      className="w-full bg-blue-500 hover:bg-blue-600 text-white"
-                      onClick={() =>
-                        addItem({
-                          id: product.id,
-                          name: product.name,
-                          price: parseFloat(product.price) || 0,
-                          image: product.images[0]?.src || "/placeholder.svg",
-                          quantity: 1,
-                        })
-                      }
-                    >
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      Add to Cart
-                    </Button>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

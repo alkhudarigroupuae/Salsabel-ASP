@@ -1,0 +1,147 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "shop": "Negozio",
+    "about": "Chi siamo",
+    "contact": "Contatti",
+    "blog": "Blog",
+    "brands": "Marchi"
+  },
+  "Common": {
+    "searchPlaceholder": "Cerca per nome parte, numero o telaio...",
+    "orders": "I miei ordini",
+    "myVehicles": "I miei veicoli",
+    "signOut": "Esci",
+    "signIn": "Accedi",
+    "createAccount": "Crea account",
+    "search": "Cerca",
+    "cart": "Carrello",
+    "account": "Account",
+    "login": "Accedi"
+  },
+  "Footer": {
+    "about": "Su Salsabel",
+    "aboutText": "Il tuo fornitore di ricambi auto premium a Sharjah, EAU. Ricambi originali e aftermarket per auto di lusso europee.",
+    "quickLinks": "Link veloci",
+    "categories": "Categorie",
+    "contact": "Informazioni di contatto",
+    "rights": "Tutti i diritti riservati.",
+    "development": "Sviluppato da",
+    "carBrands": "Marchi auto",
+    "urgentSupport": "Chiamaci per supporto urgente",
+    "location": "Zona Industriale #6, Sharjah, EAU",
+    "heroTitle": "Fornitore affidabile di ricambi auto a Sharjah e Dubai",
+    "subTitle": "La tua destinazione principale per ricambi auto di qualità a Sharjah e Dubai",
+    "selectionTitle": "Vasta selezione di ricambi originali e certificati",
+    "learnMore": "Vuoi saperne di più?",
+    "categoriesList": {
+        "bodyParts": "Parti carrozzeria",
+        "gearBoxParts": "Parti cambio",
+        "brakingParts": "Parti frenanti",
+        "engineParts": "Parti motore",
+        "coolantParts": "Parti raffreddamento",
+        "interiorParts": "Parti interni",
+        "electricalParts": "Parti elettriche",
+        "suspensionParts": "Parti sospensione"
+    }
+  },
+  "Hero": {
+    "tagline": "Ricambi originali per il tuo marchio",
+    "title": "Ricambi auto premium a Sharjah",
+    "description": "Benvenuti nel nostro vasto inventario di ricambi per auto di lusso nella zona industriale di Sharjah. Offriamo una selezione diversificata di ricambi originali dei migliori fornitori, garantendo una qualità eccezionale e un'integrazione perfetta con gli standard OEM.",
+    "shopAll": "Acquista tutto",
+    "getQuote": "Richiedi preventivo",
+    "features": {
+        "fastDelivery": "Consegna veloce",
+        "shipping": "Spedizione FedEx e DHL",
+        "quality": "Garanzia di qualità",
+        "oem": "Ricambi originali e OEM",
+        "expert": "Assistenza esperti",
+        "call": "Chiama +971 50 316 1689"
+    }
+  },
+  "FeaturedCategories": {
+    "title": "Ricambi originali per la tua auto",
+    "subtitle": "Acquista ricambi OEM premium",
+    "viewAll": "Vedi tutti i marchi"
+  },
+  "FeaturedProducts": {
+    "title": "Nuovi arrivi e vendite di ricambi!",
+    "subtitle": "Ultimi ricambi OEM da marchi europei affidabili",
+    "viewAll": "Vedi tutte le categorie",
+    "categories": {
+      "brakes": "Sistema frenante",
+      "bodyParts": "Parti di carrozzeria",
+      "suspension": "Sospensioni e ammortizzatori"
+    }
+  },
+  "WhatsApp": {
+    "message": "Ciao! Sono interessato ai vostri pezzi di ricambio auto.",
+    "ariaLabel": "Contattaci su WhatsApp"
+  },
+  "About": {
+    "metaTitle": "Chi siamo | Salsabel Ricambi Auto",
+    "metaDescription": "Benvenuti da Al Salsabel Ricambi Auto, dove inizia l'eccellenza automobilistica! La tua fonte affidabile per componenti automobilistici nuovi e usati originali premium dal 2009.",
+    "title": "SALSABEL RICAMBI AUTO",
+    "welcome": "Benvenuto",
+    "intro": "Chi siamo, Benvenuti da Al Salsabel Ricambi Auto, dove inizia l'eccellenza automobilistica! Siamo la tua fonte affidabile per componenti automobilistici nuovi e usati originali premium. Con un impegno incrollabile per la qualità e la soddisfazione del cliente, Salsabel si dedica a servire tutte le tue esigenze di ricambi auto.",
+    "inventoryTitle": "Il nostro vasto inventario",
+    "inventoryText": "Da Salsabel Automotive components, siamo orgogliosi del nostro vasto inventario di ricambi auto nuovi e usati originali premium. Che tu sia un appassionato di auto, un meccanico professionista o un proprietario di veicoli, abbiamo un'ampia selezione di componenti di prima qualità per soddisfare le tue esigenze specifiche. Il nostro inventario è meticolosamente curato per assicurarti l'accesso ai migliori ricambi automobilistici sul mercato.",
+    "qualityTitle": "Qualità e soddisfazione del cliente",
+    "qualityText": "Da Al Salsabel Ricambi Auto, la qualità è la nostra massima priorità. Comprendiamo l'importanza di componenti automobilistici affidabili per la sicurezza e le prestazioni del tuo veicolo. Ecco perché collaboriamo con produttori e fornitori affidabili per offrirti prodotti che soddisfano o superano gli standard del settore. Il nostro team di esperti è sempre disponibile per assisterti nel trovare i ricambi giusti per il tuo veicolo.",
+    "shopTitle": "Acquista con fiducia",
+    "shopText": "Quando acquisti da Al Salsabel, puoi farlo con fiducia, sapendo che stai ottenendo ricambi auto di alta qualità a prezzi competitivi. Siamo orgogliosi del nostro impegno per l'eccellenza, assicurando che il tuo viaggio verso l'eccellenza del veicolo inizi qui.",
+    "servicesTitle": "Caratteristiche dei nostri servizi",
+    "features": {
+        "inventory": "Vasto inventario",
+        "inventoryDesc": "Esplora la nostra vasta gamma di ricambi auto nuovi e usati originali premium.",
+        "pricing": "Prezzi competitivi",
+        "pricingDesc": "Offriamo prezzi competitivi per aiutarti a rimanere nel tuo budget.",
+        "quality": "Garanzia di qualità",
+        "qualityDesc": "Rilassati sapendo che i nostri ricambi provengono da produttori affidabili."
+    }
+  },
+  "Contact": {
+    "metaTitle": "Contatti | Salsabel Ricambi Auto",
+    "metaDescription": "Contatta Salsabel Ricambi Auto a Sharjah. Chiama +971 50 316 1689 o visitaci nella Zona Industriale #6, Sharjah, EAU.",
+    "title": "Contatta Salsabel Ricambi Auto",
+    "subtitle": "Mettiti in contatto con noi per qualsiasi richiesta sui ricambi auto. Il nostro team è pronto ad assisterti.",
+    "getInTouch": "Mettiti in contatto",
+    "urgentSupport": "Chiamaci per supporto urgente",
+    "salesInquiries": "Richieste di vendita",
+    "whatsapp": "WhatsApp",
+    "sendMessage": "Invia messaggio",
+    "email": "Email",
+    "location": "Posizione",
+    "workingHours": "Orari di lavoro",
+    "hours": "Sabato - Giovedì: 8:00 - 19:00",
+    "closed": "Venerdì: Chiuso",
+    "formTitle": "Richiedi preventivo gratuito",
+    "formName": "Il tuo nome",
+    "formNamePlaceholder": "Inserisci il tuo nome",
+    "formEmail": "Indirizzo email",
+    "formEmailPlaceholder": "Inserisci la tua email",
+    "formPhone": "Numero di telefono",
+    "formPhonePlaceholder": "+971 XX XXX XXXX",
+    "formSubject": "Oggetto",
+    "formSubjectPlaceholder": "Di cosa si tratta?",
+    "formMessage": "Messaggio",
+    "formMessagePlaceholder": "Descrivi i ricambi di cui hai bisogno (includi marca, modello, anno del veicolo se applicabile)",
+    "submit": "Invia messaggio"
+  },
+  "Shop": {
+    "metaTitle": "Negozio - Salsabel Ricambi Auto",
+    "metaDescription": "Sfoglia la nostra vasta collezione di ricambi auto originali per BMW, Mercedes, Audi, Porsche e altro.",
+    "title": "Acquista tutti i ricambi",
+    "subtitle": "Sfoglia il nostro vasto inventario di ricambi auto originali",
+    "noProducts": "Nessun prodotto trovato corrispondente ai tuoi criteri.",
+    "clearFilters": "Cancella filtri",
+    "showingProducts": "Visualizzazione di {count} prodotti",
+    "sale": "Saldi",
+    "parts": "Ricambi",
+    "sku": "COD:",
+    "addToCart": "Aggiungi al carrello",
+    "inStock": "Disponibile",
+    "outOfStock": "Non disponibile"
+  }
+}

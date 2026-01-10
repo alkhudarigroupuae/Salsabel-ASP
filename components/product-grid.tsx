@@ -9,12 +9,14 @@ import Link from "next/link"
 import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 import { useProducts } from "@/lib/hooks/use-products"
+import { useTranslations } from "next-intl"
 
 interface ProductGridProps {
   category?: string
 }
 
 export function ProductGrid({ category }: ProductGridProps) {
+  const t = useTranslations("Shop")
   const searchParams = useSearchParams()
   const { addItem } = useCart()
   const { formatPrice } = useCurrency()
@@ -49,10 +51,10 @@ export function ProductGrid({ category }: ProductGridProps) {
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-muted-foreground mb-4">No products found matching your criteria.</p>
+        <p className="text-muted-foreground mb-4">{t("noProducts")}</p>
         <Link href="/shop/">
           <Button variant="outline" className="border-border bg-transparent">
-            Clear Filters
+            {t("clearFilters")}
           </Button>
         </Link>
       </div>
@@ -62,7 +64,7 @@ export function ProductGrid({ category }: ProductGridProps) {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <p className="text-sm text-muted-foreground">Showing {products.length} products</p>
+        <p className="text-sm text-muted-foreground">{t("showingProducts", { count: products.length })}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -78,7 +80,7 @@ export function ProductGrid({ category }: ProductGridProps) {
               <CardContent className="p-4 flex flex-col flex-1">
                 <div className="relative mb-4">
                   {product.on_sale && (
-                    <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">Sale</Badge>
+                    <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">{t("sale")}</Badge>
                   )}
                   <Link href={`/product/${productSlug}/`}>
                     <img
@@ -91,8 +93,8 @@ export function ProductGrid({ category }: ProductGridProps) {
 
                 <div className="flex flex-col flex-1">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm text-muted-foreground">{product.categories?.[0]?.name || "Parts"}</p>
-                    <p className="text-xs text-muted-foreground">SKU: {product.sku}</p>
+                    <p className="text-sm text-muted-foreground">{product.categories?.[0]?.name || t("parts")}</p>
+                    <p className="text-xs text-muted-foreground">{t("sku")} {product.sku}</p>
                   </div>
 
                   <Link href={`/product/${productSlug}/`}>
@@ -111,7 +113,7 @@ export function ProductGrid({ category }: ProductGridProps) {
 
                   <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                     <Check className="h-3 w-3 text-green-500" />
-                    <span>{product.stock_status === "instock" ? "In Stock" : "Out of Stock"}</span>
+                    <span>{product.stock_status === "instock" ? t("inStock") : t("outOfStock")}</span>
                   </div>
 
                   <div className="mt-auto">
@@ -135,7 +137,7 @@ export function ProductGrid({ category }: ProductGridProps) {
                       }
                     >
                       <ShoppingCart className="h-4 w-4 mr-2" />
-                      Add to Cart
+                      {t("addToCart")}
                     </Button>
                   </div>
                 </div>

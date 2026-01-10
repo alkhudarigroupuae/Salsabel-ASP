@@ -1,8 +1,13 @@
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import Image from "next/image"
 import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export function Footer() {
+  const t = useTranslations("Footer")
+  const tNav = useTranslations("Navigation")
+  const tCommon = useTranslations("Common")
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12 max-w-7xl text-muted-foreground">
@@ -50,7 +55,7 @@ export function Footer() {
           Furthermore, we proudly serve as the primary distributor of Magneti Marelli and Depo lights in Dubai and Sharjah. For car enthusiasts seeking to elevate their vehicle’s appearance, our broad selection of branded headlights and taillights provides the perfect solution.
         </p>
 
-        <h3 className="text-xl font-semibold mb-3 text-foreground">Want to Learn More?</h3>
+        <h3 className="text-xl font-semibold mb-3 text-foreground">{t("learnMore")}</h3>
         <p className="mb-4 leading-relaxed">
           Feel free to get in touch with best car parts Sharjah Call us today at <a href="tel:+971503161689" className="text-primary hover:underline font-medium">+971 50 316 1689</a> or drop us an email at <a href="mailto:info@salparts.com" className="text-primary hover:underline font-medium">info@salparts.com</a>
         </p>
@@ -71,7 +76,7 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div>
             <Link href="/" className="flex items-center mb-4">
               <Image
@@ -98,7 +103,7 @@ export function Footer() {
                 href="https://www.facebook.com/salsabel.auto.parts"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-[#1877F2] hover:opacity-80 transition-opacity"
                 aria-label="Follow us on Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -107,7 +112,7 @@ export function Footer() {
                 href="https://www.instagram.com/salsabel.auto/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-[#E4405F] hover:opacity-80 transition-opacity"
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -116,7 +121,7 @@ export function Footer() {
                 href="https://wa.me/971503161689"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-[#25D366] transition-colors"
+                className="text-[#25D366] hover:opacity-80 transition-opacity"
                 aria-label="Contact us on WhatsApp"
               >
                 <MessageCircle className="h-5 w-5" />
@@ -126,7 +131,7 @@ export function Footer() {
                 href="https://www.pinterest.com/alsalsabel/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-[#E60023] transition-colors"
+                className="text-[#E60023] hover:opacity-80 transition-opacity"
                 aria-label="Follow us on Pinterest"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -138,7 +143,7 @@ export function Footer() {
                 href="https://www.youtube.com/channel/UCvo-IRTWgjjAbApeL77JC_w"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-[#FF0000] transition-colors"
+                className="text-[#FF0000] hover:opacity-80 transition-opacity"
                 aria-label="Subscribe on YouTube"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -149,7 +154,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Car Brands</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t("carBrands")}</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/mercedes-spare-parts/" className="text-muted-foreground hover:text-primary text-sm">
@@ -179,6 +184,52 @@ export function Footer() {
               <li>
                 <Link href="/volkswagen-spare-parts/" className="text-muted-foreground hover:text-primary text-sm">
                   Volkswagen
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Categories</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/body-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Body Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/gear-box-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Gear Box Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/braking-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Braking Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/engine-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Engine Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/coolant-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Coolant Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/interior-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Interior Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/electrical-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Electrical Parts
+                </Link>
+              </li>
+              <li>
+                <Link href="/suspension-parts/" className="text-muted-foreground hover:text-primary text-sm">
+                  Suspension Parts
                 </Link>
               </li>
             </ul>
@@ -221,7 +272,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact Us</h4>
+            <h4 className="font-semibold text-foreground mb-4">{t("contact")}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Phone className="h-4 w-4 text-primary" />
@@ -243,15 +294,13 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary" />
-                <span>
-                  Industrial Area #6
-                  <br />
-                  Sharjah, UAE
+                <span className="whitespace-pre-line">
+                  {t("location")}
                 </span>
               </li>
             </ul>
             <div className="mt-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
-              <p className="text-sm font-medium text-foreground">Call Us for Urgent Support</p>
+              <p className="text-sm font-medium text-[#004aad]">{t("urgentSupport")}</p>
               <a href="tel:+971557209552" className="text-primary font-bold">
                 +971 55 720 9552
               </a>
@@ -259,15 +308,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">© 2009 - 2025 Salsabel Auto Spare Parts. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy-policy/" className="text-sm text-muted-foreground hover:text-primary">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions/" className="text-sm text-muted-foreground hover:text-primary">
-              Terms & Conditions
-            </Link>
+        <div className="border-t border-border mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground text-center md:text-left">© 2009 - 2025 Salsabel Auto Spare Parts. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="/privacy-policy/" className="text-sm text-muted-foreground hover:text-primary">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-and-conditions/" className="text-sm text-muted-foreground hover:text-primary">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
+          <div className="mt-4 text-center">
+            <p className="text-sm text-white">Development By <span className="text-orange-500 font-medium">Alkhudari Group</span></p>
           </div>
         </div>
       </div>

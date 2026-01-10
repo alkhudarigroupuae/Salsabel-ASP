@@ -1,0 +1,147 @@
+{
+  "Navigation": {
+    "home": "Startseite",
+    "shop": "Shop",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "blog": "Blog",
+    "brands": "Marken"
+  },
+  "Common": {
+    "searchPlaceholder": "Suche nach Teilenamen, Nummer oder VIN...",
+    "orders": "Meine Bestellungen",
+    "myVehicles": "Meine Fahrzeuge",
+    "signOut": "Abmelden",
+    "signIn": "Anmelden",
+    "createAccount": "Konto erstellen",
+    "search": "Suche",
+    "cart": "Warenkorb",
+    "account": "Konto",
+    "login": "Anmelden"
+  },
+  "Footer": {
+    "about": "Über Salsabel",
+    "aboutText": "Ihr Premium-Lieferant für Autoersatzteile in Sharjah, VAE. Original- und Zubehörteile für europäische Luxusautos.",
+    "quickLinks": "Schnelllinks",
+    "categories": "Kategorien",
+    "contact": "Kontaktinformationen",
+    "rights": "Alle Rechte vorbehalten.",
+    "development": "Entwicklung von",
+    "carBrands": "Automarken",
+    "urgentSupport": "Rufen Sie uns für dringende Unterstützung an",
+    "location": "Industriegebiet #6, Sharjah, VAE",
+    "heroTitle": "Vertrauenswürdiger Autoersatzteil-Lieferant in Sharjah & Dubai",
+    "subTitle": "Ihre erste Adresse für hochwertige Autoersatzteile in Sharjah und Dubai",
+    "selectionTitle": "Umfangreiche Auswahl an Original- und geprüften Ersatzteilen",
+    "learnMore": "Möchten Sie mehr erfahren?",
+    "categoriesList": {
+        "bodyParts": "Karosserieteile",
+        "gearBoxParts": "Getriebeteile",
+        "brakingParts": "Bremsteile",
+        "engineParts": "Motorteile",
+        "coolantParts": "Kühlteile",
+        "interiorParts": "Innenteile",
+        "electricalParts": "Elektroteile",
+        "suspensionParts": "Aufhängungsteile"
+    }
+  },
+  "Hero": {
+    "tagline": "Original-Ersatzteile für Ihre Automarke",
+    "title": "Premium-Autoersatzteile in Sharjah",
+    "description": "Willkommen in unserem umfangreichen Bestand an Luxus-Autoersatzteilen im Industriegebiet von Sharjah. Wir bieten eine vielfältige Auswahl an Originalteilen von Top-Lieferanten, die außergewöhnliche Qualität und nahtlose Integration in OEM-Standards gewährleisten.",
+    "shopAll": "Alle Teile kaufen",
+    "getQuote": "Kostenloses Angebot anfordern",
+    "features": {
+        "fastDelivery": "Schnelle Lieferung",
+        "shipping": "FedEx & DHL Versand",
+        "quality": "Qualitätssicherung",
+        "oem": "Original- & OEM-Teile",
+        "expert": "Expertenhilfe",
+        "call": "Rufen Sie +971 50 316 1689"
+    }
+  },
+  "FeaturedCategories": {
+    "title": "Original-Ersatzteile für Ihre Automarke",
+    "subtitle": "Kaufen Sie erstklassige OEM-Ersatzteile",
+    "viewAll": "Alle Marken ansehen"
+  },
+  "FeaturedProducts": {
+    "title": "Neuheiten & Ersatzteilverkauf!",
+    "subtitle": "Neueste OEM-Teile von vertrauenswürdigen europäischen Marken",
+    "viewAll": "Alle Kategorien ansehen",
+    "categories": {
+      "brakes": "Bremssystem",
+      "bodyParts": "Karosserieteile",
+      "suspension": "Federung & Stoßdämpfer"
+    }
+  },
+  "WhatsApp": {
+    "message": "Hallo! Ich interessiere mich für Ihre Autoersatzteile.",
+    "ariaLabel": "Kontaktieren Sie uns auf WhatsApp"
+  },
+  "About": {
+    "metaTitle": "Über uns | Salsabel Autoersatzteile",
+    "metaDescription": "Willkommen bei Al Salsabel Autoersatzteile, wo automobile Exzellenz beginnt! Ihre vertrauenswürdige Quelle für hochwertige neue und original gebrauchte Autokomponenten seit 2009.",
+    "title": "SALSABEL AUTOERSATZTEILE",
+    "welcome": "Willkommen",
+    "intro": "Über uns, Willkommen bei Al Salsabel Autoersatzteile, wo automobile Exzellenz beginnt! Wir sind Ihre vertrauenswürdige Quelle für hochwertige neue und original gebrauchte Autokomponenten. Mit einem unerschütterlichen Engagement für Qualität und Kundenzufriedenheit widmet sich Salsabel all Ihren Autoersatzteilbedürfnissen.",
+    "inventoryTitle": "Unser umfangreiches Inventar",
+    "inventoryText": "Bei Salsabel Autokomponenten sind wir stolz auf unser umfangreiches Inventar an hochwertigen neuen und original gebrauchten Autoersatzteilen. Egal, ob Sie ein Autoenthusiast, ein professioneller Mechaniker oder ein Fahrzeugbesitzer sind, wir haben eine große Auswahl an erstklassigen Komponenten, um Ihre spezifischen Anforderungen zu erfüllen. Unser Inventar wird sorgfältig kuratiert, um sicherzustellen, dass Sie Zugang zu den besten Autoteilen auf dem Markt haben.",
+    "qualityTitle": "Qualität und Kundenzufriedenheit",
+    "qualityText": "Bei Al Salsabel Autoersatzteile hat Qualität oberste Priorität. Wir verstehen die Bedeutung zuverlässiger Autokomponenten für die Sicherheit und Leistung Ihres Fahrzeugs. Deshalb arbeiten wir mit vertrauenswürdigen Herstellern und Lieferanten zusammen, um Ihnen Produkte zu bieten, die Branchenstandards erfüllen oder übertreffen. Unser Expertenteam steht Ihnen jederzeit zur Verfügung, um Ihnen bei der Suche nach den richtigen Teilen für Ihr Fahrzeug zu helfen.",
+    "shopTitle": "Einkaufen mit Vertrauen",
+    "shopText": "Wenn Sie bei Al Salsabel einkaufen, können Sie dies mit Vertrauen tun, in dem Wissen, dass Sie hochwertige Autoteile zu wettbewerbsfähigen Preisen erhalten. Wir sind stolz auf unser Engagement für Exzellenz und stellen sicher, dass Ihre Reise zur Fahrzeugexzellenz hier beginnt.",
+    "servicesTitle": "Unsere Servicefunktionen",
+    "features": {
+        "inventory": "Riesiges Inventar",
+        "inventoryDesc": "Entdecken Sie unser umfangreiches Angebot an hochwertigen neuen und original gebrauchten Autoersatzteilen.",
+        "pricing": "Wettbewerbsfähige Preise",
+        "pricingDesc": "Wir bieten wettbewerbsfähige Preise, damit Sie in Ihrem Budget bleiben.",
+        "quality": "Qualitätssicherung",
+        "qualityDesc": "Seien Sie beruhigt, dass unsere Ersatzteile von renommierten Herstellern stammen."
+    }
+  },
+  "Contact": {
+    "metaTitle": "Kontakt | Salsabel Autoersatzteile",
+    "metaDescription": "Kontaktieren Sie Salsabel Autoersatzteile in Sharjah. Rufen Sie +971 50 316 1689 an oder besuchen Sie uns im Industriegebiet #6, Sharjah, VAE.",
+    "title": "Kontakt Salsabel Autoersatzteile",
+    "subtitle": "Kontaktieren Sie uns für Anfragen zu Autoersatzteilen. Unser Team steht bereit, Ihnen zu helfen.",
+    "getInTouch": "Kontakt aufnehmen",
+    "urgentSupport": "Rufen Sie uns für dringende Unterstützung an",
+    "salesInquiries": "Verkaufsanfragen",
+    "whatsapp": "WhatsApp",
+    "sendMessage": "Nachricht senden",
+    "email": "E-Mail",
+    "location": "Standort",
+    "workingHours": "Öffnungszeiten",
+    "hours": "Samstag - Donnerstag: 8:00 - 19:00 Uhr",
+    "closed": "Freitag: Geschlossen",
+    "formTitle": "Kostenloses Angebot anfordern",
+    "formName": "Ihr Name",
+    "formNamePlaceholder": "Geben Sie Ihren Namen ein",
+    "formEmail": "E-Mail-Adresse",
+    "formEmailPlaceholder": "Geben Sie Ihre E-Mail ein",
+    "formPhone": "Telefonnummer",
+    "formPhonePlaceholder": "+971 XX XXX XXXX",
+    "formSubject": "Betreff",
+    "formSubjectPlaceholder": "Worum geht es?",
+    "formMessage": "Nachricht",
+    "formMessagePlaceholder": "Beschreiben Sie die benötigten Teile (einschließlich Fahrzeugmarke, Modell, Baujahr falls zutreffend)",
+    "submit": "Nachricht senden"
+  },
+  "Shop": {
+    "metaTitle": "Shop - Salsabel Autoersatzteile",
+    "metaDescription": "Durchstöbern Sie unsere umfangreiche Sammlung originaler Autoersatzteile für BMW, Mercedes, Audi, Porsche und mehr.",
+    "title": "Alle Teile einkaufen",
+    "subtitle": "Durchstöbern Sie unser umfangreiches Inventar an originalen Autoersatzteilen",
+    "noProducts": "Keine Produkte gefunden, die Ihren Kriterien entsprechen.",
+    "clearFilters": "Filter löschen",
+    "showingProducts": "Zeige {count} Produkte",
+    "sale": "Angebot",
+    "parts": "Teile",
+    "sku": "SKU:",
+    "addToCart": "In den Warenkorb",
+    "inStock": "Auf Lager",
+    "outOfStock": "Nicht vorrätig"
+  }
+}
