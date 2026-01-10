@@ -5,6 +5,7 @@ import { ArrowRight, Shield, Truck, Headphones } from "lucide-react"
 import { Link } from "@/lib/navigation"
 import { NewArrivalsCarousel } from "@/components/new-arrivals-carousel"
 import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
 
 const heroImages = [
   "/bmw-spare-parts-banner.jpg",
@@ -15,6 +16,7 @@ const heroImages = [
 ]
 
 export function HeroSection() {
+  const t = useTranslations("Hero")
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {

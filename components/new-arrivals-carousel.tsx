@@ -9,8 +9,10 @@ import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 import Link from "next/link"
 import { useProducts } from "@/lib/hooks/use-products"
+import { useTranslations } from "next-intl"
 
 export function NewArrivalsCarousel() {
+  const t = useTranslations("NewArrivals")
   const { products: rawProducts, isLoading } = useProducts({ orderby: "date", order: "desc", per_page: 12 })
   const { addItem } = useCart()
   const { formatPrice } = useCurrency()
@@ -63,7 +65,7 @@ export function NewArrivalsCarousel() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center gap-3 mb-8">
             <Sparkles className="h-6 w-6 text-primary animate-pulse" />
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground">New Arrivals</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground">{t("title")}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[...Array(4)].map((_, i) => (
@@ -93,8 +95,8 @@ export function NewArrivalsCarousel() {
               <Sparkles className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground">New Arrivals</h2>
-              <p className="text-sm text-muted-foreground">Latest products just added to our store</p>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground">{t("title")}</h2>
+              <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
             </div>
           </div>
 

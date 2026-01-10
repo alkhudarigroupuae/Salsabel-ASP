@@ -20,6 +20,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function Header() {
+  const tCommon = useTranslations("Common")
+  const tNav = useTranslations("Navigation")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [brandsOpen, setBrandsOpen] = useState(false)
   const [mounted, setMounted] = useState(false)

@@ -9,6 +9,8 @@ import { CurrencyProvider } from "@/lib/currency-context"
 import { ThemeProvider } from "@/lib/theme-context"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "next-intl/server"
 import "../globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
