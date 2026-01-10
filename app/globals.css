@@ -124,6 +124,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  h2 {
+    color: #004aad !important;
+  }
 }
 
 @keyframes accordion-down {

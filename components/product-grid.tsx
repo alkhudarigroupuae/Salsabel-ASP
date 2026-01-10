@@ -82,7 +82,7 @@ export function ProductGrid({ category }: ProductGridProps) {
                   {product.on_sale && (
                     <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">{t("sale")}</Badge>
                   )}
-                  <Link href={`/product/${productSlug}/`}>
+                  <Link href={`/product/${productSlug}`}>
                     <img
                       src={image || "/placeholder.svg"}
                       alt={product.name}
@@ -97,7 +97,7 @@ export function ProductGrid({ category }: ProductGridProps) {
                     <p className="text-xs text-muted-foreground">{t("sku")} {product.sku}</p>
                   </div>
 
-                  <Link href={`/product/${productSlug}/`}>
+                  <Link href={`/product/${productSlug}`}>
                     <h3 className="font-medium text-foreground hover:text-primary transition-colors line-clamp-2 mb-2">
                       {product.name}
                     </h3>

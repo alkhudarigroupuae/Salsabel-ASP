@@ -15,12 +15,16 @@ export default function NotFound() {
             The page you're looking for doesn't exist or may have been removed. Please check the URL or return home.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/shop">Browse Products</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/">Go Home</Link>
-            </Button>
+            <Link href="/shop">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Browse Products
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button variant="outline">
+                Go Home
+              </Button>
+            </Link>
           </div>
         </div>
       </main>
