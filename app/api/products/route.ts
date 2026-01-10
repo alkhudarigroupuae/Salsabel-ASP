@@ -12,7 +12,20 @@ export async function GET(request: Request) {
   const category = searchParams.get("category") || undefined
   const minPrice = searchParams.get("minPrice") || undefined
   const maxPrice = searchParams.get("maxPrice") || undefined
+  const featured = searchParams.get("featured") === "true"
   const sort = searchParams.get("sort") || "featured"
+  const condition = searchParams.get("condition")
+  const brand = searchParams.get("brand")
+  const origin = searchParams.get("origin")
+  const year = searchParams.get("year")
+  const part = searchParams.get("part")
+
+  // Combine filters into search query for basic filtering
+  let searchQuery = search
+  const filterTerms = [condition, brand, origin, year, part].filter(Boolean)
+  if (filterTerms.length > 0) {
+    searchQuery = `${searchQuery || ""} ${filterTerms.join(" ")}`.trim()
+  }
 
   // Determine orderby and order from sort param
   let orderby = "menu_order"
@@ -39,6 +52,7 @@ export async function GET(request: Request) {
 
   try {
     if (!supabase) {
+      console.log("Supabase client not initialized")
       throw new Error("Supabase client not initialized")
     }
 
@@ -68,22 +82,32 @@ export async function GET(request: Request) {
     console.error("[v0] Error fetching products:", error)
     // Fallback to WooCommerce data if Supabase fails
     try {
+      console.log("Attempting to fetch from WooCommerce...")
       const products = await wooProducts.getAll({
         page,
         per_page: perPage,
-        search,
+        search: searchQuery,
         category,
         min_price: minPrice,
         max_price: maxPrice,
+        featured,
         orderby,
         order,
       })
+      console.log(`Fetched ${products.length} products from WooCommerce`)
+
+      if (products.length === 0) {
+        console.log("WooCommerce returned 0 products, falling back to mocks")
+        throw new Error("No products found in WooCommerce")
+      }
 
       return NextResponse.json(products)
     } catch (wooError) {
       console.error("Error fetching products from WooCommerce:", wooError)
       // Return mock data for development
-      return NextResponse.json(getMockProducts(search, category))
+      const mocks = getMockProducts(search, category)
+      console.log(`Returning ${mocks.length} mock products (search: ${search}, category: ${category})`)
+      return NextResponse.json(mocks)
     }
   }
 }

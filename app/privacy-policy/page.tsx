@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 
 export const metadata: Metadata = {
@@ -11,7 +9,6 @@ export const metadata: Metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="container mx-auto px-4 py-12">
         <h1 className="text-3xl md:text-4xl font-bold mb-8">Privacy Policy</h1>
 
@@ -64,7 +61,6 @@ export default function PrivacyPolicyPage() {
           </p>
         </div>
       </main>
-      <Footer />
       <WhatsAppButton />
     </div>
   )

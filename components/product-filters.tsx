@@ -59,11 +59,16 @@ export function ProductFilters() {
 
   const [selectedCategories, setSelectedCategories] = useState<string[]>(searchParams.get("category")?.split(",") || [])
   const [selectedBrands, setSelectedBrands] = useState<string[]>(searchParams.get("brand")?.split(",") || [])
+  const [selectedConditions, setSelectedConditions] = useState<string[]>(searchParams.get("condition")?.split(",") || [])
+  const [selectedOrigins, setSelectedOrigins] = useState<string[]>(searchParams.get("origin")?.split(",") || [])
   const [priceRange, setPriceRange] = useState([0, 500])
   const [year, setYear] = useState(searchParams.get("year") || "")
   const [make, setMake] = useState(searchParams.get("make") || "")
   const [model, setModel] = useState(searchParams.get("model") || "")
   const [availableModels, setAvailableModels] = useState<string[]>([])
+
+  const conditions = ["New", "Used", "Refurbished"]
+  const origins = ["Genuine", "OEM", "Aftermarket"]
 
   useEffect(() => {
     if (make && vehicleData.models[make]) {
@@ -88,6 +93,18 @@ export function ProductFilters() {
       params.delete("brand")
     }
 
+    if (selectedConditions.length > 0) {
+      params.set("condition", selectedConditions.join(","))
+    } else {
+      params.delete("condition")
+    }
+
+    if (selectedOrigins.length > 0) {
+      params.set("origin", selectedOrigins.join(","))
+    } else {
+      params.delete("origin")
+    }
+
     if (priceRange[0] > 0 || priceRange[1] < 500) {
       params.set("minPrice", priceRange[0].toString())
       params.set("maxPrice", priceRange[1].toString())
@@ -108,6 +125,8 @@ export function ProductFilters() {
   const clearFilters = () => {
     setSelectedCategories([])
     setSelectedBrands([])
+    setSelectedConditions([])
+    setSelectedOrigins([])
     setPriceRange([0, 500])
     setYear("")
     setMake("")
@@ -123,6 +142,16 @@ export function ProductFilters() {
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands((prev) => (prev.includes(brand) ? prev.filter((b) => b !== brand) : [...prev, brand]))
+  }
+
+  const toggleCondition = (condition: string) => {
+    setSelectedConditions((prev) =>
+      prev.includes(condition) ? prev.filter((c) => c !== condition) : [...prev, condition],
+    )
+  }
+
+  const toggleOrigin = (origin: string) => {
+    setSelectedOrigins((prev) => (prev.includes(origin) ? prev.filter((o) => o !== origin) : [...prev, origin]))
   }
 
   return (
@@ -177,7 +206,7 @@ export function ProductFilters() {
       {/* Categories */}
       <Card className="bg-card border-border">
         <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-medium text-foreground">Categories</CardTitle>
+          <CardTitle className="text-sm font-medium text-foreground">Categories (Part)</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           {categories.map((category) => (
@@ -227,6 +256,48 @@ export function ProductFilters() {
               />
               <Label htmlFor={brand} className="text-sm text-muted-foreground cursor-pointer hover:text-foreground">
                 {brand}
+              </Label>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+      {/* Condition */}
+      <Card className="bg-card border-border">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm font-medium text-foreground">Condition</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {conditions.map((condition) => (
+            <div key={condition} className="flex items-center space-x-2">
+              <Checkbox
+                id={condition}
+                checked={selectedConditions.includes(condition)}
+                onCheckedChange={() => toggleCondition(condition)}
+              />
+              <Label htmlFor={condition} className="text-sm text-muted-foreground cursor-pointer hover:text-foreground">
+                {condition}
+              </Label>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+
+      {/* Origin */}
+      <Card className="bg-card border-border">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm font-medium text-foreground">Origin</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {origins.map((origin) => (
+            <div key={origin} className="flex items-center space-x-2">
+              <Checkbox
+                id={origin}
+                checked={selectedOrigins.includes(origin)}
+                onCheckedChange={() => toggleOrigin(origin)}
+              />
+              <Label htmlFor={origin} className="text-sm text-muted-foreground cursor-pointer hover:text-foreground">
+                {origin}
               </Label>
             </div>
           ))}

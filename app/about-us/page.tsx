@@ -1,5 +1,3 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Users, Award, Truck, Shield, Headphones } from "lucide-react"
@@ -14,7 +12,6 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="bg-card border-b border-border py-16">

@@ -45,8 +45,8 @@ export function CartContent() {
   return (
     <div className="grid lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2 space-y-4">
-        {items.map((item) => (
-          <Card key={item.id} className="bg-card border-border">
+        {items.map((item, index) => (
+          <Card key={`${item.id}-${index}`} className="bg-card border-border">
             <CardContent className="p-4">
               <div className="flex gap-4">
                 <img

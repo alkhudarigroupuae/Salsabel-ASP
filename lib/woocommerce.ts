@@ -4,9 +4,9 @@
 // - WOOCOMMERCE_CONSUMER_KEY
 // - WOOCOMMERCE_CONSUMER_SECRET
 
-const WOOCOMMERCE_URL = process.env.WOOCOMMERCE_URL || ""
-const CONSUMER_KEY = process.env.WOOCOMMERCE_CONSUMER_KEY || ""
-const CONSUMER_SECRET = process.env.WOOCOMMERCE_CONSUMER_SECRET || ""
+const WOOCOMMERCE_URL = process.env.WOOCOMMERCE_URL || "https://salparts.com/"
+const CONSUMER_KEY = process.env.WOOCOMMERCE_CONSUMER_KEY || "ck_1ca2b9944d435a1038999a523b9c58729f572f6b"
+const CONSUMER_SECRET = process.env.WOOCOMMERCE_CONSUMER_SECRET || "cs_213561f5a7fa0dc9e8b13ae01c415e7421503c85"
 
 // Sanitize URL
 const sanitizedUrl = WOOCOMMERCE_URL.replace(/\/$/, "")
@@ -21,7 +21,7 @@ async function wooCommerceRequest<T>(endpoint: string, options: WooCommerceReque
   const { method = "GET", body, params } = options
 
   // Build URL with query params
-  const url = new URL(`${WOOCOMMERCE_URL}/wp-json/wc/v3/${endpoint}`)
+  const url = new URL(`${sanitizedUrl}/wp-json/wc/v3/${endpoint}`)
 
   // Add OAuth parameters
   url.searchParams.append("consumer_key", CONSUMER_KEY)
@@ -173,10 +173,7 @@ export const wooProducts = {
         status: params?.status || "publish", // Only published products
       },
     })
-    return products.filter((product) => {
-      const price = Number.parseFloat(product.price)
-      return price > 0
-    })
+    return products
   },
 
   async getById(id: number): Promise<WooProduct> {
@@ -204,6 +201,36 @@ export const wooProducts = {
   async getOnSale(limit = 8): Promise<WooProduct[]> {
     return wooCommerceRequest<WooProduct[]>("products", {
       params: { on_sale: true, per_page: limit },
+    })
+  },
+}
+
+export interface WooAttribute {
+  id: number
+  name: string
+  slug: string
+  type: string
+  order_by: string
+  has_archives: boolean
+}
+
+export interface WooAttributeTerm {
+  id: number
+  name: string
+  slug: string
+  description: string
+  menu_order: number
+  count: number
+}
+
+export const wooAttributes = {
+  getAll: async (): Promise<WooAttribute[]> => {
+    return wooCommerceRequest<WooAttribute[]>("products/attributes")
+  },
+
+  getTerms: async (attributeId: number): Promise<WooAttributeTerm[]> => {
+    return wooCommerceRequest<WooAttributeTerm[]>(`products/attributes/${attributeId}/terms`, {
+      params: { per_page: 100 },
     })
   },
 }

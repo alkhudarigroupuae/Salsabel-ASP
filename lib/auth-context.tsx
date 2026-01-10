@@ -1,12 +1,24 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { 
+  GoogleAuthProvider, 
+  GithubAuthProvider, 
+  signInWithPopup, 
+  signInWithPhoneNumber, 
+  signOut,
+  type ConfirmationResult,
+  type RecaptchaVerifier
+} from "firebase/auth"
+import { auth } from "./firebase"
 
 export interface User {
   id: string
   email: string
   firstName: string
   lastName: string
+  photoURL?: string
+  phoneNumber?: string
 }
 
 interface AuthContextType {
@@ -14,7 +26,10 @@ interface AuthContextType {
   isLoading: boolean
   login: (email: string, password: string) => Promise<boolean>
   register: (email: string, password: string, firstName: string, lastName: string) => Promise<boolean>
-  logout: () => void
+  logout: () => Promise<void>
+  loginWithGoogle: () => Promise<boolean>
+  loginWithGithub: () => Promise<boolean>
+  loginWithPhone: (phoneNumber: string, appVerifier: any) => Promise<ConfirmationResult | null>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -24,12 +39,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Check for existing session
+    // Check for existing session from local storage (for mock auth)
     const savedUser = localStorage.getItem("user")
     if (savedUser) {
       setUser(JSON.parse(savedUser))
     }
-    setIsLoading(false)
+
+    // Listen for Firebase auth state changes
+    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+      if (firebaseUser) {
+        const nameParts = firebaseUser.displayName?.split(" ") || []
+        const firstName = nameParts[0] || "User"
+        const lastName = nameParts.slice(1).join(" ") || ""
+        
+        const newUser: User = {
+          id: firebaseUser.uid,
+          email: firebaseUser.email || "",
+          firstName,
+          lastName,
+          photoURL: firebaseUser.photoURL || "",
+          phoneNumber: firebaseUser.phoneNumber || ""
+        }
+        setUser(newUser)
+        localStorage.setItem("user", JSON.stringify(newUser))
+      }
+      setIsLoading(false)
+    })
+
+    return () => unsubscribe()
   }, [])
 
   const login = async (email: string, password: string): Promise<boolean> => {
@@ -65,12 +102,78 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return false
   }
 
-  const logout = () => {
-    setUser(null)
-    localStorage.removeItem("user")
+  const loginWithGoogle = async (): Promise<boolean> => {
+    if ((auth as any).isMock) {
+      console.warn("Firebase is not configured. Google login disabled.")
+      return false
+    }
+    try {
+      const provider = new GoogleAuthProvider()
+      await signInWithPopup(auth, provider)
+      return true
+    } catch (error) {
+      console.error("Google login error", error)
+      return false
+    }
   }
 
-  return <AuthContext.Provider value={{ user, isLoading, login, register, logout }}>{children}</AuthContext.Provider>
+  const loginWithGithub = async (): Promise<boolean> => {
+    if ((auth as any).isMock) {
+      console.warn("Firebase is not configured. Github login disabled.")
+      return false
+    }
+    try {
+      const provider = new GithubAuthProvider()
+      await signInWithPopup(auth, provider)
+      return true
+    } catch (error) {
+      console.error("Github login error", error)
+      return false
+    }
+  }
+
+  const loginWithPhone = async (phoneNumber: string, appVerifier: any): Promise<ConfirmationResult | null> => {
+    if ((auth as any).isMock) {
+      console.warn("Firebase is not configured. Phone login disabled.")
+      return null
+    }
+    try {
+      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+      return confirmationResult
+    } catch (error) {
+      console.error("Phone login error", error)
+      return null
+    }
+  }
+
+  const logout = async () => {
+    setUser(null)
+    localStorage.removeItem("user")
+    if (!(auth as any).isMock) {
+      try {
+        await signOut(auth)
+      } catch (error) {
+        console.error("Error signing out of Firebase", error)
+      }
+    }
+  }
+
+  return (
+    <AuthContext.Provider 
+      value={{ 
+        user, 
+        isLoading, 
+        login, 
+        register, 
+        logout,
+        loginWithGoogle,
+        loginWithGithub,
+        loginWithPhone
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 export function useAuth() {

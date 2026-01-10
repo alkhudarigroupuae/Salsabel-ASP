@@ -29,7 +29,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const savedCart = localStorage.getItem("cart")
     if (savedCart) {
-      setItems(JSON.parse(savedCart))
+      try {
+        const parsedItems = JSON.parse(savedCart)
+        // Deduplicate items by ID to prevent key errors
+        const uniqueItems = parsedItems.reduce((acc: CartItem[], current: CartItem) => {
+          const exists = acc.find((item) => item.id === current.id)
+          if (!exists) {
+            return [...acc, current]
+          }
+          return acc
+        }, [])
+        setItems(uniqueItems)
+      } catch (e) {
+        console.error("Failed to parse cart from localStorage", e)
+      }
     }
   }, [])
 

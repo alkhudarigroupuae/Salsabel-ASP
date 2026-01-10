@@ -1,5 +1,3 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -18,7 +16,6 @@ export const metadata: Metadata = {
 export default function ContactUsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       <main className="py-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -156,7 +153,6 @@ export default function ContactUsPage() {
           </div>
         </div>
       </main>
-      <Footer />
       <WhatsAppButton />
     </div>
   )

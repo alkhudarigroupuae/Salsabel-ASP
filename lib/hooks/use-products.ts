@@ -16,6 +16,12 @@ interface UseProductsOptions {
   orderby?: string
   order?: "asc" | "desc"
   per_page?: number
+  featured?: boolean
+  condition?: string
+  brand?: string
+  origin?: string
+  year?: string
+  part?: string
 }
 
 export function useProducts(options: UseProductsOptions = {}) {
@@ -25,7 +31,14 @@ export function useProducts(options: UseProductsOptions = {}) {
   if (options.category) params.set("category", options.category)
   if (options.minPrice) params.set("minPrice", options.minPrice.toString())
   if (options.maxPrice) params.set("maxPrice", options.maxPrice.toString())
+  if (options.featured) params.set("featured", "true")
   if (options.page) params.set("page", options.page.toString())
+  
+  if (options.condition) params.set("condition", options.condition)
+  if (options.brand) params.set("brand", options.brand)
+  if (options.origin) params.set("origin", options.origin)
+  if (options.year) params.set("year", options.year)
+  if (options.part) params.set("part", options.part)
 
   const perPage = options.perPage || options.per_page
   if (perPage) params.set("per_page", perPage.toString())

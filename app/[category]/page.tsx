@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { ProductGrid } from "@/components/product-grid"
 import { ProductFilters } from "@/components/product-filters"
 import { ProductSearch } from "@/components/product-search"
+import { wooCategories } from "@/lib/woocommerce"
 
 // Valid category slugs matching salparts.com
 const validCategories = [
@@ -73,14 +74,23 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound()
   }
 
-  const title = categoryTitles[category] || "Spare Parts"
-  const bannerImage = categoryBanners[category] || "/placeholder.svg"
+  // Fetch real category data from WooCommerce
+  let wooCategory
+  try {
+    wooCategory = await wooCategories.getBySlug(category)
+  } catch (error) {
+    console.error("Error fetching category:", error)
+  }
+
+  const title = wooCategory?.name || categoryTitles[category] || "Spare Parts"
+  // Prioritize local high-quality banners, fallback to WooCommerce image
+  const bannerImage = categoryBanners[category] || wooCategory?.image?.src || "/placeholder.svg"
 
   return (
     <div className="min-h-screen bg-background">
       <div className="w-full h-64 md:h-96 overflow-hidden bg-secondary">
         <img
-          src={bannerImage || "/placeholder.svg"}
+          src={bannerImage}
           alt={title}
           className="w-full h-full object-cover object-center"
           style={category === "mercedes-spare-parts" ? { objectPosition: "center" } : undefined}

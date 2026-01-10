@@ -18,10 +18,6 @@ export function NewArrivalsCarousel() {
   const [itemsPerView, setItemsPerView] = useState(4)
 
   const products = rawProducts
-    .filter((product) => {
-      const price = Number.parseFloat(product.price) || 0
-      return price > 0
-    })
     .filter((product, index, self) => index === self.findIndex((t) => t.id === product.id))
 
   // Responsive items per view
