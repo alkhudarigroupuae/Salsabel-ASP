@@ -9,6 +9,7 @@ import { ShoppingCart, Star, Minus, Plus, Check, Truck, Shield, RotateCcw, XCirc
 import { Link, useRouter } from "@/lib/navigation"
 import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
+import { useLocale } from "next-intl"
 
 import type { WooProduct } from "@/lib/woocommerce"
 
@@ -17,6 +18,7 @@ export function ProductDetails({ product }: { product: WooProduct }) {
   const { addItem } = useCart()
   const { formatPrice } = useCurrency()
   const router = useRouter()
+  const locale = useLocale()
 
   const price = Number.parseFloat(product.price) || 0
   const regularPrice = Number.parseFloat(product.regular_price) || 0
@@ -283,7 +285,37 @@ export function ProductDetails({ product }: { product: WooProduct }) {
           <TabsContent value="reviews" className="mt-6">
             <Card className="bg-card border-border">
               <CardContent className="p-6">
-                {reviewCount > 0 ? (
+                {product.reviews && product.reviews.length > 0 ? (
+                  <div className="space-y-6">
+                    {product.reviews.map((review) => (
+                      <div key={review.id} className="border-b border-border last:border-0 pb-6 last:pb-0">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <div className="font-semibold text-foreground">{review.reviewer}</div>
+                            <span className="text-xs text-muted-foreground">
+                              {new Date(review.date).toLocaleDateString(locale, {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
+                            </span>
+                          </div>
+                          <div className="flex">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <Star
+                                key={i}
+                                className={`h-4 w-4 ${
+                                  i < review.rating ? "fill-primary text-primary" : "text-muted-foreground"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-muted-foreground">{review.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : reviewCount > 0 ? (
                   <div className="text-center py-8">
                     <p className="text-muted-foreground">
                       This product has {reviewCount} reviews with an average rating of {rating.toFixed(1)} stars.

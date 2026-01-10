@@ -92,6 +92,18 @@ export interface WooProduct {
   meta_data: Array<{ key: string; value: string }>
   average_rating: string
   rating_count: number
+  reviews?: Array<{
+    id: number
+    reviewer: string
+    rating: number
+    date: string
+    content: string
+    reviewer_avatar_urls?: {
+      "24": string
+      "48": string
+      "96": string
+    }
+  }>
 }
 
 export interface WooCategory {

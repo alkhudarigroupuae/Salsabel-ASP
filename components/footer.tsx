@@ -11,53 +11,97 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12 max-w-7xl text-muted-foreground">
-        <h2 className="text-2xl font-bold mb-4 text-foreground">Road-Tested Reliability: Your Trusted Hub for Used Spare Parts and Genuine Auto Spares</h2>
-        <h3 className="text-xl font-semibold mb-3 text-foreground">YOUR PREMIER DESTINATION FOR TOP-QUALITY AUTO PARTS SUPPLIER IN SHARJAH & DUBAI</h3>
-        
+        <h2 className="text-2xl font-bold mb-4 text-foreground">{t("heroTitle")}</h2>
+        <h3 className="text-xl font-semibold mb-3 text-foreground">{t("subTitle")}</h3>
+
         <p className="mb-4 leading-relaxed">
-          To make sure your vehicle runs well, use good parts that fit well and last a long time. At <Link href="/" className="text-primary hover:underline font-medium">Salsabel Auto Spare Parts</Link>, we promise to provide customers with high-quality replacement parts that fit perfectly and are affordable.
+          {t.rich("content.p1", {
+            link: (chunks) => (
+              <Link href="/" className="text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
 
         <p className="mb-4 leading-relaxed">
-          For budget-friendly, premium replacement parts, <Link href="/contact-us" className="text-primary hover:underline font-medium">Salsabel Auto Spare Parts in Sharjah</Link> is your trusted partner.
+          {t.rich("content.p2", {
+            link: (chunks) => (
+              <Link href="/contact-us" className="text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
 
-        <p className="mb-4 leading-relaxed">
-          Great prices in Sharjah and Dubai for high-quality replacement parts, used spare Part. Salsabel Auto Spare Parts in Sharjah is the place to go for all your car part needs. We have been supplying high-quality car parts to customers in Dubai and Sharjah since 2009. Our location is in Industrial Area #6, Sharjah.
-        </p>
+        <p className="mb-4 leading-relaxed">{t("content.p3")}</p>
+
+        <p className="mb-4 leading-relaxed">{t("content.p4")}</p>
 
         <p className="mb-4 leading-relaxed">
-          We import, export, and distribute auto brands. Our customers get great value with high-quality replacement parts at affordable prices. Our in-house certified OE equivalent parts ensure flawless fitment, granting customers the same top-tier performance, reliability, and longevity at prices that won’t break the bank.
+          {t.rich("content.p5", {
+            link: (chunks) => (
+              <Link href="/shop" className="text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
 
+        <p className="mb-4 leading-relaxed">{t("content.p6")}</p>
+
+        <h3 className="text-xl font-semibold mb-3 text-foreground">{t("selectionTitle")}</h3>
         <p className="mb-4 leading-relaxed">
-          Whether you’re in need of a dependable replacement part or an enhancement for your vehicle’s body kit, you’ll find it all right here you can also Check spare parts for sale with <Link href="/shop" className="text-primary hover:underline font-medium">parts online</Link>.
+          {t.rich("content.p7", {
+            link1: (chunks) => (
+              <Link href="/mercedes-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+            link2: (chunks) => (
+              <Link href="/bmw-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+            link3: (chunks) => (
+              <Link href="/range-rover-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+            link4: (chunks) => (
+              <Link href="/porsche-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+            link5: (chunks) => (
+              <Link href="/audi-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+            link6: (chunks) => (
+              <Link href="/volkswagen-spare-parts" className="mx-1 text-primary hover:underline font-medium">
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
 
-        <p className="mb-4 leading-relaxed">
-          At Salsabel Auto Spare Parts, we take pride in offering an extensive selection of premium auto spare parts. Our commitment to excellence extends to ensuring your orders are delivered swiftly and securely.
-          Experience the convenience of prompt deliveries with our reliable shipping partners, FedEx and DHL. Whether you’re just around the corner or wide range, you can rely on us to deliver your auto spare parts with speed and precision.
-        </p>
-
-        <h3 className="text-xl font-semibold mb-3 text-foreground">A Vast Selection of OE Equivalent Spare Parts for a Seamless Drive</h3>
-        <p className="mb-4 leading-relaxed">
-          Our product range caters to a diverse array of vehicles, with a focus on esteemed European brands. We boast an extensive inventory of Quality car and auto spare parts for renowned makes such as 
-          <Link href="/mercedes-spare-parts" className="mx-1 text-primary hover:underline font-medium">Mercedes Benz</Link>, 
-          <Link href="/bmw-spare-parts" className="mx-1 text-primary hover:underline font-medium">BMW</Link>, 
-          <Link href="/range-rover-spare-parts" className="mx-1 text-primary hover:underline font-medium">Range Rover</Link>, 
-          <Link href="/porsche-spare-parts" className="mx-1 text-primary hover:underline font-medium">Porsche</Link>, 
-          <Link href="/audi-spare-parts" className="mx-1 text-primary hover:underline font-medium">Audi</Link>, and 
-          <Link href="/volkswagen-spare-parts" className="mx-1 text-primary hover:underline font-medium">VW</Link>. 
-          From front and rear bumpers to complete body kits, you’ll discover virtually everything at our store.
-        </p>
-
-        <p className="mb-4 leading-relaxed">
-          Furthermore, we proudly serve as the primary distributor of Magneti Marelli and Depo lights in Dubai and Sharjah. For car enthusiasts seeking to elevate their vehicle’s appearance, our broad selection of branded headlights and taillights provides the perfect solution.
-        </p>
+        <p className="mb-4 leading-relaxed">{t("content.p8")}</p>
 
         <h3 className="text-xl font-semibold mb-3 text-foreground">{t("learnMore")}</h3>
         <p className="mb-4 leading-relaxed">
-          Feel free to get in touch with best car parts Sharjah Call us today at <a href="tel:+971503161689" className="text-primary hover:underline font-medium">+971 50 316 1689</a> or drop us an email at <a href="mailto:info@salparts.com" className="text-primary hover:underline font-medium">info@salparts.com</a>
+          {t.rich("content.p9", {
+            link1: (chunks) => (
+              <a href="tel:+971503161689" className="text-primary hover:underline font-medium">
+                {chunks}
+              </a>
+            ),
+            link2: (chunks) => (
+              <a href="mailto:info@salparts.com" className="text-primary hover:underline font-medium">
+                {chunks}
+              </a>
+            ),
+          })}
         </p>
       </div>
 

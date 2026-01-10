@@ -247,7 +247,30 @@ export const MOCK_PRODUCTS: WooProduct[] = [
        { id: 1, name: "Part Number", options: ["83A823509 D"] }
     ],
     meta_data: [],
-    average_rating: "0",
-    rating_count: 0,
+    average_rating: "4.8",
+    rating_count: 3,
+    reviews: [
+      {
+        id: 1,
+        reviewer: "أحمد محمد",
+        rating: 5,
+        date: "2024-01-15T10:00:00",
+        content: "قطعة أصلية، ركبت تمام على سيارتي Q3. والتوصيل كان سريع جداً، شكراً لكم!"
+      },
+      {
+        id: 2,
+        reviewer: "خالد العتيبي",
+        rating: 5,
+        date: "2024-01-10T14:30:00",
+        content: "خدمة ممتازة، حلت مشكلة قفل الدبة عندي. أنصح بالتعامل معهم."
+      },
+      {
+        id: 3,
+        reviewer: "Saeed Al Kaabi",
+        rating: 4,
+        date: "2023-12-28T09:15:00",
+        content: "جودة عالية وسعر مناسب مقارنة بالوكالة."
+      }
+    ],
   }
 ]
