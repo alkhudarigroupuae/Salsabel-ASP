@@ -75,6 +75,10 @@
       "suspension": "Suspension & Shock Absorbers"
     }
   },
+  "NewArrivals": {
+    "title": "New Arrivals",
+    "subtitle": "Check out our latest products"
+  },
   "WhatsApp": {
     "message": "Hello! I'm interested in your auto spare parts.",
     "ariaLabel": "Contact us on WhatsApp"
