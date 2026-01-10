@@ -7,7 +7,6 @@ import Link from "next/link"
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <Header />
       <main className="flex-1 container mx-auto px-4 py-16 flex items-center justify-center">
         <div className="text-center space-y-6">
           <PackageX className="h-24 w-24 mx-auto text-muted-foreground" />
@@ -25,7 +24,6 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   )
 }

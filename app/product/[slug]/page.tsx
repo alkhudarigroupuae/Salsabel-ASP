@@ -25,9 +25,9 @@ async function getProductBySlug(slug: string): Promise<WooProduct | null> {
     }
 
     // WooCommerce API: get product by slug
-    const products = await wooProducts.getAll({ search: slug, per_page: 1 })
+    const products = await wooProducts.getAll({ slug: slug })
     
-    // If no product found by slug search, and slug is numeric, try by ID
+    // If no product found by slug, and slug is numeric, try by ID
     if (products.length === 0 && !isNaN(Number(slug))) {
         try {
             const product = await wooProducts.getById(Number(slug))

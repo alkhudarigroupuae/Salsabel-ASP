@@ -155,6 +155,7 @@ export const wooProducts = {
     page?: number
     per_page?: number
     search?: string
+    slug?: string
     category?: string
     tag?: string
     status?: string
@@ -187,8 +188,16 @@ export const wooProducts = {
   },
 
   async getByCategory(categorySlug: string, page = 1, perPage = 12): Promise<WooProduct[]> {
+    let categoryId = categorySlug
+    if (isNaN(Number(categorySlug))) {
+       const category = await wooCategories.getBySlug(categorySlug)
+       if (category) {
+         categoryId = category.id.toString()
+       }
+    }
+    
     return wooCommerceRequest<WooProduct[]>("products", {
-      params: { category: categorySlug, page, per_page: perPage },
+      params: { category: categoryId, page, per_page: perPage },
     })
   },
 
