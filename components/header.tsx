@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import Image from "next/image"
 import { Search, ShoppingCart, User, Menu, X, ChevronDown, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -64,16 +64,16 @@ export function Header() {
       {/* Top Bar */}
       <div className="bg-muted py-2 hidden md:block border-b border-border">
         <div className="container mx-auto px-4 flex justify-end items-center gap-6 text-xs font-medium text-muted-foreground">
-          <Link href="/shop/" className="hover:text-primary transition-colors">
+          <Link href="/shop" className="hover:text-primary transition-colors">
             Shop
           </Link>
-          <Link href="/blog/" className="hover:text-primary transition-colors">
+          <Link href="/blog" className="hover:text-primary transition-colors">
             Blog
           </Link>
-          <Link href="/about-us/" className="hover:text-primary transition-colors">
+          <Link href="/about-us" className="hover:text-primary transition-colors">
             About
           </Link>
-          <Link href="/contact-us/" className="hover:text-primary transition-colors">
+          <Link href="/contact-us" className="hover:text-primary transition-colors">
             Contact
           </Link>
         </div>

@@ -1,13 +1,9 @@
-import type { Metadata } from "next"
+"use client"
+
 import { Link } from "@/lib/navigation"
 import { Card, CardContent } from "@/components/ui/card"
+import { useTranslations } from "next-intl"
 
-export const metadata: Metadata = {
-  title: "Salsabel Auto Spare Parts Blog",
-  description: "Read our latest articles about auto spare parts, car maintenance tips, and industry news.",
-}
-
-// This would come from WooCommerce/WordPress API in production
 const blogPosts = [
   {
     slug: "car-parts-and-accessories-dubai",
@@ -30,29 +26,29 @@ const blogPosts = [
     image: "/car-spare-parts-store.jpg",
     date: "2024-01-05",
   },
-  {
-    slug: "spare-parts-in-sharjah",
-    title: "How to Buy Spare Parts in Sharjah?",
-    excerpt: "Your complete guide to buying genuine spare parts in Sharjah, UAE.",
-    image: "/sharjah-auto-parts.jpg",
-    date: "2024-01-01",
-  },
 ]
 
-export default function BlogPage() {
+export function LatestBlogPosts() {
+  const t = useTranslations("Navigation") // Using Navigation namespace for "Blog" title as fallback or add new keys
+  
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-2">Salsabel Auto Spare Parts Blog</h1>
-          <p className="text-muted-foreground">Tips, guides, and news about auto spare parts</p>
+    <section className="py-16 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between mb-10">
+          <div>
+            <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">Latest News</h2>
+            <p className="text-muted-foreground">Updates and tips from Salsabel Auto Spare Parts</p>
+          </div>
+          <Link href="/blog" className="text-primary hover:underline hidden sm:block">
+            View All Posts
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/${post.slug}/`}>
-              <Card className="bg-card border-border hover:border-blue-500 transition-all h-full overflow-hidden group">
-                <div className="aspect-video overflow-hidden">
+            <Link key={post.slug} href={`/blog/${post.slug}`}>
+              <Card className="bg-card border-border hover:border-blue-500 transition-all h-full overflow-hidden group hover:shadow-lg hover:shadow-blue-500/10">
+                <div className="aspect-video overflow-hidden bg-muted">
                   <img
                     src={post.image || "/placeholder.svg"}
                     alt={post.title}
@@ -61,16 +57,22 @@ export default function BlogPage() {
                 </div>
                 <CardContent className="p-4">
                   <p className="text-xs text-muted-foreground mb-2">{post.date}</p>
-                  <h2 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
-                  </h2>
+                  </h3>
                   <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                 </CardContent>
               </Card>
             </Link>
           ))}
         </div>
+        
+        <div className="mt-8 text-center sm:hidden">
+          <Link href="/blog" className="text-primary hover:underline">
+            View All Posts
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

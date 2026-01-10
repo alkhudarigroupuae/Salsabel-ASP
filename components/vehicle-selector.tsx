@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { Car, Search } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/lib/navigation"
 
 // Mock data - will be replaced with WooCommerce API data
 const vehicleData = {

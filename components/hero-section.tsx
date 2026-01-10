@@ -53,13 +53,13 @@ export function HeroSection() {
             {t("description")}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/shop/">
+            <Link href="/shop">
               <Button size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
                 {t("shopAll")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link href="/contact-us/">
+            <Link href="/contact-us">
               <Button size="lg" variant="outline" className="border-border bg-transparent">
                 {t("getQuote")}
               </Button>

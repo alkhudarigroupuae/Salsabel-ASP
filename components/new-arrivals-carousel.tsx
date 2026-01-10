@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronLeft, ChevronRight, ShoppingCart, Sparkles } from "lucide-react"
 import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { useProducts } from "@/lib/hooks/use-products"
 import { useTranslations, useLocale } from "next-intl"
 
@@ -225,7 +225,7 @@ export function NewArrivalsCarousel() {
           <Link href="/shop?orderby=date">
             <Button
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="border-primary text-primary hover:bg-primary/10 bg-transparent"
             >
               View All New Arrivals
             </Button>

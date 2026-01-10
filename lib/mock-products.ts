@@ -222,5 +222,32 @@ export const MOCK_PRODUCTS: WooProduct[] = [
     meta_data: [],
     average_rating: "0",
     rating_count: 0,
+  },
+  {
+    id: 1000,
+    name: "Audi Q3 Lid Lock 83A823509 D",
+    slug: "audi-q3-lid-lock-83a823509-d",
+    permalink: "/product/audi-q3-lid-lock-83a823509-d/",
+    type: "simple",
+    status: "publish",
+    featured: false,
+    sku: "AUD-Q3-LID-001",
+    price: "150.00",
+    regular_price: "150.00",
+    sale_price: "",
+    on_sale: false,
+    stock_quantity: 10,
+    stock_status: "instock",
+    categories: [{ id: 103, name: "Audi", slug: "audi-spare-parts" }, { id: 7, name: "Body", slug: "body-parts" }],
+    tags: [],
+    images: [{ id: 9, src: "/placeholder.svg", alt: "Audi Q3 Lid Lock" }],
+    description: "Genuine Audi Q3 Lid Lock. Part Number: 83A823509 D.",
+    short_description: "Genuine Audi Q3 Lid Lock",
+    attributes: [
+       { id: 1, name: "Part Number", options: ["83A823509 D"] }
+    ],
+    meta_data: [],
+    average_rating: "0",
+    rating_count: 0,
   }
 ]

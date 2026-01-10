@@ -5,7 +5,7 @@ import { useCart } from "@/lib/cart-context"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, Package, Mail, ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { useSearchParams } from "next/navigation"
 
 function SuccessContent() {

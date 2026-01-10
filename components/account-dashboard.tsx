@@ -1,14 +1,14 @@
 "use client"
 
 import { useAuth } from "@/lib/auth-context"
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/lib/navigation"
 import { useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { User, Package, Heart, MapPin, CreditCard, LogOut, Car } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 
 // Mock order data
 const mockOrders = [

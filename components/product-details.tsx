@@ -6,10 +6,10 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ShoppingCart, Star, Minus, Plus, Check, Truck, Shield, RotateCcw, XCircle } from "lucide-react"
-import Link from "next/link"
+import { Link, useRouter } from "@/lib/navigation"
 import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
-import { useRouter } from "next/navigation"
+
 import type { WooProduct } from "@/lib/woocommerce"
 
 export function ProductDetails({ product }: { product: WooProduct }) {

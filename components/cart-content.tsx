@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Tag } from "lucide-react"
-import Link from "next/link"
+import { Link } from "@/lib/navigation"
 import { useState } from "react"
 
 export function CartContent() {

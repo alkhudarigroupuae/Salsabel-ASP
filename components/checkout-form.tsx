@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Separator } from "@/components/ui/separator"
 import { CreditCard, Truck, Lock, Check } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/lib/navigation"
 
 export function CheckoutForm() {
   const router = useRouter()
