@@ -47,7 +47,7 @@ export function LatestBlogPosts() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <Card className="bg-card border-border hover:border-blue-500 transition-all h-full overflow-hidden group hover:shadow-lg hover:shadow-blue-500/10">
+              <Card className="bg-card border-blue-500 transition-all h-full overflow-hidden group hover:shadow-lg hover:shadow-blue-500/10 border">
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img
                     src={post.image || "/placeholder.svg"}

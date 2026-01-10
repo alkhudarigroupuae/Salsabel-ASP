@@ -10,6 +10,7 @@ import { useCart } from "@/lib/cart-context"
 import { useCurrency } from "@/lib/currency-context"
 import { useProducts } from "@/lib/hooks/use-products"
 import { useTranslations } from "next-intl"
+import { SnakeBorder } from "@/components/ui/snake-border"
 
 interface ProductGridProps {
   category?: string
@@ -76,13 +77,14 @@ export function ProductGrid({ category }: ProductGridProps) {
           const productSlug = product.slug || product.id.toString()
 
           return (
-            <Card key={product.id} className="bg-card border-border group flex flex-col">
+            <Card key={product.id} className="bg-card border-border transition-all group flex flex-col hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500 hover:ring-1 hover:ring-blue-500 relative overflow-hidden">
               <CardContent className="p-4 flex flex-col flex-1">
                 <div className="relative mb-4">
                   {product.on_sale && (
                     <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">{t("sale")}</Badge>
                   )}
-                  <Link href={`/product/${productSlug}`}>
+                  <Link href={`/product/${productSlug}`} className="block relative overflow-hidden rounded-lg bg-secondary snake-border-container">
+                    <SnakeBorder />
                     <img
                       src={image || "/placeholder.svg"}
                       alt={product.name}

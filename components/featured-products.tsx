@@ -49,7 +49,7 @@ export function FeaturedProducts() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
             <Link key={category.id} href={category.link} className="group">
-              <Card className="bg-card border-border overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+              <Card className="bg-card border-border overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:border-primary hover:ring-1 hover:ring-primary relative">
                 <CardContent className="p-0">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img

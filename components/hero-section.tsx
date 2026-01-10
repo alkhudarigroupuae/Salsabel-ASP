@@ -39,7 +39,7 @@ export function HeroSection() {
           }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/80 to-background/70 dark:from-background/95 dark:via-background/90 dark:to-background/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/0 dark:from-background/95 dark:via-background/60 dark:to-background/20" />
 
       <div className="relative container mx-auto px-4 py-12 lg:py-20">
         <div className="max-w-2xl">
@@ -68,27 +68,27 @@ export function HeroSection() {
         </div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
-            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Truck className="h-5 w-5 text-blue-500" />
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border group hover:border-primary/50 transition-colors">
+            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Truck className="h-5 w-5 text-blue-500 animate-bounce [animation-duration:3s]" />
             </div>
             <div>
               <p className="font-medium text-foreground">{t("features.fastDelivery")}</p>
               <p className="text-sm text-muted-foreground">{t("features.shipping")}</p>
             </div>
           </div>
-          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
-            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Shield className="h-5 w-5 text-blue-500" />
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border group hover:border-primary/50 transition-colors">
+            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Shield className="h-5 w-5 text-blue-500 animate-pulse [animation-duration:3s]" />
             </div>
             <div>
               <p className="font-medium text-foreground">{t("features.quality")}</p>
               <p className="text-sm text-muted-foreground">{t("features.oem")}</p>
             </div>
           </div>
-          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border">
-            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
-              <Headphones className="h-5 w-5 text-blue-500" />
+          <div className="flex flex-col items-center text-center gap-3 bg-card/50 rounded-lg p-4 border border-border group hover:border-primary/50 transition-colors">
+            <div className="h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Headphones className="h-5 w-5 text-blue-500 animate-ping [animation-duration:3s]" />
             </div>
             <div>
               <p className="font-medium text-foreground">{t("features.expert")}</p>

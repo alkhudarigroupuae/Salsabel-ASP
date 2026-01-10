@@ -85,7 +85,7 @@ export function FeaturedCategories() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {categories.map((category) => (
             <Link key={category.slug} href={`/${category.slug}`}>
-              <Card className="bg-card border-border hover:border-blue-500 transition-all group cursor-pointer h-full hover:shadow-lg hover:shadow-blue-500/10">
+              <Card className="bg-card border-border transition-all group cursor-pointer h-full hover:shadow-lg hover:shadow-blue-500/20 hover:border-blue-500 hover:ring-1 hover:ring-blue-500 relative overflow-hidden">
                 <CardContent className="p-4 flex flex-col items-center text-center">
                   <div className="relative w-full aspect-square mb-3 overflow-hidden rounded-lg bg-white">
                     <img
