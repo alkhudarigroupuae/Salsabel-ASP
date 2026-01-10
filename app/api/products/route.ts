@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { wooProducts, type WooProduct } from "@/lib/woocommerce"
 import { supabase } from "@/lib/supabase-client"
+import { MOCK_PRODUCTS } from "@/lib/mock-products"
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
@@ -89,125 +90,21 @@ export async function GET(request: Request) {
 
 // Mock products for development/demo
 function getMockProducts(search?: string, category?: string): Partial<WooProduct>[] {
-  const mockProducts = [
-    {
-      id: 1,
-      name: "Premium Brake Pad Set",
-      sku: "BRK-001",
-      price: "89.99",
-      regular_price: "119.99",
-      sale_price: "89.99",
-      on_sale: true,
-      stock_status: "instock",
-      average_rating: "4.8",
-      rating_count: 234,
-      images: [{ id: 1, src: "/brake-pads-automotive.jpg", alt: "Brake Pads" }],
-      categories: [{ id: 1, name: "Brakes", slug: "brakes" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }],
-      short_description: "High-performance ceramic brake pads",
-    },
-    {
-      id: 2,
-      name: "Oil Filter - High Performance",
-      sku: "ENG-002",
-      price: "24.99",
-      regular_price: "24.99",
-      sale_price: "",
-      on_sale: false,
-      stock_status: "instock",
-      average_rating: "4.9",
-      rating_count: 567,
-      images: [{ id: 2, src: "/oil-filter-automotive.jpg", alt: "Oil Filter" }],
-      categories: [{ id: 2, name: "Engine Parts", slug: "engine-parts" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }, { id: 102, name: "Mercedes", slug: "mercedes-spare-parts" }],
-      short_description: "Premium synthetic fiber oil filter",
-    },
-    {
-      id: 3,
-      name: "LED Headlight Bulbs H11",
-      sku: "LGT-003",
-      price: "45.99",
-      regular_price: "59.99",
-      sale_price: "45.99",
-      on_sale: true,
-      stock_status: "instock",
-      average_rating: "4.7",
-      rating_count: 189,
-      images: [{ id: 3, src: "/led-headlight-bulbs.jpg", alt: "LED Headlight" }],
-      categories: [{ id: 3, name: "Lighting", slug: "lighting" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }, { id: 103, name: "Audi", slug: "audi-spare-parts" }],
-      short_description: "6000K ultra-bright LED bulbs",
-    },
-    {
-      id: 4,
-      name: "Spark Plugs - Platinum",
-      sku: "ENG-004",
-      price: "32.99",
-      regular_price: "32.99",
-      sale_price: "",
-      on_sale: false,
-      stock_status: "instock",
-      average_rating: "4.9",
-      rating_count: 892,
-      images: [{ id: 4, src: "/spark-plugs-automotive.jpg", alt: "Spark Plugs" }],
-      categories: [{ id: 2, name: "Engine Parts", slug: "engine-parts" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }],
-      short_description: "Platinum-tipped for improved efficiency",
-    },
-    {
-      id: 5,
-      name: "Air Filter - Performance",
-      sku: "ENG-005",
-      price: "54.99",
-      regular_price: "54.99",
-      sale_price: "",
-      on_sale: false,
-      stock_status: "instock",
-      average_rating: "4.6",
-      rating_count: 345,
-      images: [{ id: 5, src: "/air-filter-automotive.jpg", alt: "Air Filter" }],
-      categories: [{ id: 2, name: "Engine Parts", slug: "engine-parts" }, { id: 102, name: "Mercedes", slug: "mercedes-spare-parts" }],
-      short_description: "High-flow performance air filter",
-    },
-    {
-      id: 6,
-      name: "Alternator - Remanufactured",
-      sku: "ELC-006",
-      price: "189.99",
-      regular_price: "249.99",
-      sale_price: "189.99",
-      on_sale: true,
-      stock_status: "instock",
-      average_rating: "4.5",
-      rating_count: 123,
-      images: [{ id: 6, src: "/alternator-automotive.jpg", alt: "Alternator" }],
-      categories: [{ id: 4, name: "Electrical", slug: "electrical" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }],
-      short_description: "Quality remanufactured alternator",
-    },
-    {
-      id: 7,
-      name: "BMW Genuine Oil Filter",
-      sku: "BMW-FIL-001",
-      price: "18.99",
-      regular_price: "22.99",
-      sale_price: "18.99",
-      on_sale: true,
-      stock_status: "instock",
-      average_rating: "5.0",
-      rating_count: 42,
-      images: [{ id: 7, src: "/oil-filter-automotive.jpg", alt: "BMW Oil Filter" }],
-      categories: [{ id: 2, name: "Engine Parts", slug: "engine-parts" }, { id: 101, name: "BMW", slug: "bmw-spare-parts" }],
-      short_description: "Genuine BMW Oil Filter for various models",
-    },
-  ]
-
-  let filtered = mockProducts
+  let filtered = [...MOCK_PRODUCTS]
 
   if (search) {
     const searchLower = search.toLowerCase()
     filtered = filtered.filter(
-      (p) => p.name.toLowerCase().includes(searchLower) || p.short_description?.toLowerCase().includes(searchLower),
+      (p) =>
+        p.name.toLowerCase().includes(searchLower) ||
+        p.description?.toLowerCase().includes(searchLower) ||
+        p.sku?.toLowerCase().includes(searchLower) ||
+        p.categories?.some((c) => c.name.toLowerCase().includes(searchLower))
     )
   }
 
   if (category) {
-    filtered = filtered.filter((p) => p.categories?.some((c) => c.slug === category))
+    filtered = filtered.filter((p) => p.categories?.some((c) => c.slug === category || c.id.toString() === category))
   }
 
   return filtered
